@@ -2,18 +2,18 @@
 
 namespace Meema\MediaConvert\Converters;
 
-use Aws\Exception\AwsException;
+use Aws\Credentials\Credentials;
 use Aws\MediaConvert\MediaConvertClient;
 use Meema\MediaConvert\Contracts\Converter;
 
 class MediaConverter implements Converter
 {
     /**
-     * Client instance of Polly.
+     * Client instance of MediaConvert.
      *
-     * @var \Aws\Polly\PollyClient
+     * @var \Aws\MediaConvert\MediaConvertClient
      */
-    protected $client;
+    protected MediaConvertClient $client;
 
     /**
      * Construct converter.
@@ -22,7 +22,15 @@ class MediaConverter implements Converter
      */
     public function __construct(MediaConvertClient $client)
     {
-        $this->client = $client;
+        $result = $client->describeEndpoints([]);
+        $config = config('media-convert');
+
+        $this->client = new MediaConvertClient([
+            'version' => $config['version'],
+            'region' => $config['region'],
+            'credentials' => new Credentials($config['credentials']['key'], $config['credentials']['secret']),
+            'endpoint' => $result['Endpoints'][0]['Url']
+        ]);
     }
 
     /**
@@ -41,16 +49,11 @@ class MediaConverter implements Converter
      * @param string $id
      * @return \Aws\Result
      */
-    public function cancelJob(string $id): \Aws\Result
+    public function cancelJob(string $id)
     {
-        try {
-            return $this->client->cancelJob([
-                'Id' => $id,
-            ]);
-        } catch (AwsException $e) {
-            // output error message if fails
-            echo $e->getMessage();
-        }
+        return $this->client->cancelJob([
+            'Id' => $id,
+        ]);
     }
 
     /**
@@ -59,21 +62,16 @@ class MediaConverter implements Converter
      * @param array $settings
      * @return \Aws\Result
      */
-    public function createJob(array $settings): \Aws\Result
+    public function createJob(array $settings)
     {
-        try {
-            return $this->client->createJob([
-                "Role" => "IAM_ROLE_ARN",
-                "Settings" => $settings, // JobSettings structure
-                "Queue" => "JOB_QUEUE_ARN",
-                "UserMetadata" => [
-                    "Customer" => "Amazon"
-                ],
-            ]);
-        } catch (AwsException $e) {
-            // output error message if fails
-            echo $e->getMessage();
-        }
+        return $this->client->createJob([
+            "Role" => config('media-convert.iam_arn'),
+            "Settings" => $settings, // JobSettings structure
+            "Queue" => config('media-convert.queue_arn'),
+            "UserMetadata" => [
+                "Customer" => "Amazon",
+            ],
+        ]);
     }
 
     /**
@@ -82,16 +80,11 @@ class MediaConverter implements Converter
      * @param string $id
      * @return \Aws\Result
      */
-    public function getJob(string $id): \Aws\Result
+    public function getJob(string $id)
     {
-        try {
-            return $this->client->getJob([
-                'Id' => $id,
-            ]);
-        } catch (AwsException $e) {
-            // output error message if fails
-            echo $e->getMessage();
-        }
+        return $this->client->getJob([
+            'Id' => $id,
+        ]);
     }
 
     /**
@@ -100,13 +93,8 @@ class MediaConverter implements Converter
      * @param array $options
      * @return \Aws\Result
      */
-    public function listJobs(array $options): \Aws\Result
+    public function listJobs(array $options)
     {
-        try {
-            return $this->client->listJobs($options);
-        } catch (AwsException $e) {
-            // output error message if fails
-            echo $e->getMessage();
-        }
+        return $this->client->listJobs($options);
     }
 }

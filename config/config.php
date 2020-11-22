@@ -11,4 +11,7 @@ return [
 
     'region' => env('AWS_DEFAULT_REGION', 'us-east-1'),
     'version' => 'latest',
+
+    'iam_arn' => env('AWS_IAM_ARN'),
+    'queue_arn' => env('AWS_QUEUE_ARN'),
 ];

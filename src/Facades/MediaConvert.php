@@ -5,11 +5,10 @@ namespace Meema\MediaConvert\Facades;
 use Illuminate\Support\Facades\Facade;
 
 /**
- * @method static void convert($data, array $options)
- * @method static \Meema\MediaConvert\Contracts\Converter cancelJob(string $id)
- * @method static \Meema\MediaConvert\Contracts\Converter createJob(string $settings)
- * @method static \Meema\MediaConvert\Contracts\Converter getJob(string $id)
- * @method static \Meema\MediaConvert\Contracts\Converter listJobs(array $options)
+ * @method static \Aws\Result cancelJob(string $id)
+ * @method static \Aws\Result createJob(array $settings)
+ * @method static \Aws\Result getJob(string $id)
+ * @method static \Aws\Result listJobs(array $options)
  */
 class MediaConvert extends Facade
 {

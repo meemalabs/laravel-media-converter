@@ -10,7 +10,7 @@ interface Converter
      * @param string $id
      * @return \Aws\Result
      */
-    public function cancelJob(string $id): \Aws\Result;
+    public function cancelJob(string $id);
 
     /**
      * Creates a new job based on the settings passed.
@@ -18,7 +18,7 @@ interface Converter
      * @param array $settings
      * @return \Aws\Result
      */
-    public function createJob(array $settings): \Aws\Result;
+    public function createJob(array $settings);
 
     /**
      * Gets the job.
@@ -26,7 +26,7 @@ interface Converter
      * @param string $id
      * @return \Aws\Result
      */
-    public function getJob(string $id): \Aws\Result;
+    public function getJob(string $id);
 
     /**
      * Lists all of the jobs based on your options provided.
@@ -34,5 +34,5 @@ interface Converter
      * @param array $options
      * @return \Aws\Result
      */
-    public function listJobs(array $options): \Aws\Result;
+    public function listJobs(array $options);
 }

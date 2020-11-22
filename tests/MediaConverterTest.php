@@ -3,9 +3,6 @@
 namespace Meema\MediaConvert\Tests;
 
 use Aws\MediaConvert\MediaConvertClient;
-use Aws\Result;
-use Illuminate\Support\Facades\Storage;
-use Meema\MediaConvert\Converters\MediaConverter;
 
 class MediaConverterTest extends MediaConvertTestCase
 {
