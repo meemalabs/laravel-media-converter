@@ -1,0 +1,58 @@
+{
+    "name": "meema/laravel-mediaconvert",
+    "description": "This package creates a shared API to easily use Text to Speech functionalities amongst different TTS providers.",
+    "keywords": [
+        "meema",
+        "Meema",
+        "media conversion",
+        "laravel",
+        "aws",
+        "mediaconvert"
+    ],
+    "homepage": "https://github.com/meema/laravel-mediaconvert",
+    "license": "MIT",
+    "type": "library",
+    "authors": [
+        {
+            "name": "Meema Agency",
+            "email": "chris@Meema.agency"
+        }
+    ],
+    "require": {
+        "php": "^7.0|^7.2|^7.3|^7.4",
+        "guzzlehttp/guzzle": "^6.0|^7.0",
+        "illuminate/support": "5.*|^6.0|^7.0|^8.0"
+    },
+    "require-dev": {
+        "aws/aws-sdk-php": "^3.0",
+        "orchestra/testbench": "^3.5.0|^3.6.0|^4.0|^5.0|^6.0",
+        "phpunit/phpunit": "^5.0|^6.0|^8.0|^9.3"
+    },
+    "autoload": {
+        "psr-4": {
+            "Meema\\MediaConvert\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Meema\\MediaConvert\\Tests\\": "tests"
+        }
+    },
+    "scripts": {
+        "test": "vendor/bin/phpunit",
+        "test-coverage": "vendor/bin/phpunit --coverage-html coverage"
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Meema\\MediaConvert\\Providers\\MediaConvertServiceProvider"
+            ],
+            "aliases": {
+                "MediaConvert": "Meema\\MediaConvert\\Facades\\MediaConvertFacade"
+            }
+        }
+    }
+}
