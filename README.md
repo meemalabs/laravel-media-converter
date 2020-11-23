@@ -19,7 +19,7 @@ use Meema\MediaConvert\Facades\MediaConvert;
 
 // run any of the following MediaConvert methods:
 $result = MediaConvert::cancelJob(string $id);
-$result = MediaConvert::createJob(string $settings);
+$result = MediaConvert::createJob(array $settings);
 $result = MediaConvert::getJob(string $id);
 $result = MediaConvert::listJobs(array $options);
 ```
