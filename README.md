@@ -68,6 +68,51 @@ return [
 ];
 ```
 
+### Set Up Webhooks (optional)
+
+This package makes use of webhooks in order to communicate the status/progress of the MediaConvert job. Please follow the following steps to enable webhooks for yourself.
+
+Please note, this is only optional, and you should only enable this if you want to track the MediaConvert job's progressions.
+
+#### Setup Expose
+
+First, let's use [Expose](https://beyondco.de/docs/expose/getting-started/installation) to "expose" / generate a URL for our local API. Follow the Expose documentation on how you can get started and generate a "live" & sharable URL for within your development environment.
+
+It should be as simple as `cd my-laravel-api && expose`. 
+
+#### Setup AWS SNS Topic & Subscription
+
+Second, let's create an AWS SNS Topic which will notify our "exposed" API endpoint:
+
+1. Open the Amazon SNS console at https://console.aws.amazon.com/sns/v3/home
+2. In the navigation pane, choose Topics, and then choose "Create new topic".
+3. For Topic name, enter `MediaConvertJobUpdate`, and then choose "Create topic".
+
+![AWS SNS Topic Creation Screenshot](https://i.imgur.com/wzVJFxZ.png)
+
+4. Choose the topic ARN link for the topic that you just created. It looks something like this: `arn:aws:sns:region:123456789012:MediaConvertJobUpdate.
+5. On the Topic details: `MediaConvertJobUpdate` page, in the Subscriptions section, choose "Create subscription".
+6. For Protocol, choose "HTTPS". For Endpoint, enter exposed API URL that you generated in a previous step, including the API URI. 
+   
+For example, 
+```
+https://meema-api.sharedwithexpose.com/api/media-convert-update
+```
+
+7. Choose "Create subscription".
+
+#### Confirming Your Subscription
+
+Finally, we need to confirm the subscription which is easily done by navigating to the `MediaConvertJobUpdate` Topic page. There, you should see the following section:
+
+![AWS SNS Subscription Confirmation Screenshot](https://i.ibb.co/GP3Y6BY/Screen-Shot-2020-11-23-at-11-47-54-AM.png)
+
+By default, AWS will have sent a post request to URL you defined in your "Subscription" setup. You can view request in the Expose interface, by visiting the "Dashboard Url", which should be similar to: `http://127.0.0.1:4040` 
+
+Once you are in the Expose dashboard, you need to locate the `SubscribeURL` value. Once located, copy it and use it to confirm your SNS Topic Subscription.
+
+![AWS SNS Subscription Confirmation Screenshot](https://i.imgur.com/ECGIBUY.png)
+
 ### Testing
 
 ``` bash
