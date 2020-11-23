@@ -18,6 +18,8 @@ class MediaConvertServiceProvider extends ServiceProvider
                 __DIR__.'/../../config/config.php' => config_path('media-convert.php'),
             ], 'config');
         }
+
+        $this->loadRoutesFrom(__DIR__.'/../routes.php');
     }
 
     /**

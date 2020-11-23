@@ -1,11 +1,11 @@
 # MediaConvert Package for Laravel
 
-[![Latest Version on Packagist](https://img.shields.io/packagist/v/meema/laravel-mediaconvert.svg?style=flat-square)](https://packagist.org/packages/Meema/laravel-mediaconvert)
-[![Test](https://github.com/meemaio/laravel-mediaconvert/workflows/Test/badge.svg?branch=master)](https://github.com/ci-on/laravel-mediaconvert/actions)
+[![Latest Version on Packagist](https://img.shields.io/packagist/v/meema/laravel-mediaconvert.svg?style=flat-square)](https://packagist.org/packages/meema/laravel-mediaconvert)
+[![Test](https://github.com/meemaio/laravel-mediaconvert/workflows/Test/badge.svg?branch=master)](https://github.com/meemaio/laravel-mediaconvert/actions)
 [![StyleCI](https://github.styleci.io/repos/264578171/shield?branch=master)](https://github.styleci.io/repos/264578171)
-[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/ci-on/laravel-mediaconvert/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/ci-on/laravel-mediaconvert/?branch=master)
-[![Total Downloads](https://img.shields.io/packagist/dt/Meema/laravel-mediaconvert.svg?style=flat-square)](https://packagist.org/packages/Meema/laravel-mediaconvert)
-[![License](https://img.shields.io/github/license/ci-on/laravel-mediaconvert.svg?style=flat-square)](https://github.com/ci-on/laravel-mediaconvert/blob/master/LICENSE.md)
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/meemaio/laravel-mediaconvert/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/meemaio/laravel-mediaconvert/?branch=master)
+[![Total Downloads](https://img.shields.io/packagist/dt/Meema/laravel-mediaconvert.svg?style=flat-square)](https://packagist.org/packages/meema/laravel-mediaconvert)
+[![License](https://img.shields.io/github/license/meemaio/laravel-mediaconvert.svg?style=flat-square)](https://github.com/meemaio/laravel-mediaconvert/blob/master/LICENSE.md)
 <!-- [
 [![Build Status](wip)](ghactions)
  -->
@@ -96,7 +96,7 @@ Second, let's create an AWS SNS Topic which will notify our "exposed" API endpoi
    
 For example, 
 ```
-https://meema-api.sharedwithexpose.com/api/media-convert-update
+https://meema-api.sharedwithexpose.com/api/webhooks/media-convert
 ```
 
 7. Choose "Create subscription".
@@ -105,7 +105,7 @@ https://meema-api.sharedwithexpose.com/api/media-convert-update
 
 Finally, we need to confirm the subscription which is easily done by navigating to the `MediaConvertJobUpdate` Topic page. There, you should see the following section:
 
-![AWS SNS Subscription Confirmation Screenshot](https://i.ibb.co/GP3Y6BY/Screen-Shot-2020-11-23-at-11-47-54-AM.png)
+![AWS SNS Subscription Confirmation Screenshot](https://i.imgur.com/qzLZJAD.png)
 
 By default, AWS will have sent a post request to URL you defined in your "Subscription" setup. You can view request in the Expose interface, by visiting the "Dashboard Url", which should be similar to: `http://127.0.0.1:4040` 
 
