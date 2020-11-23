@@ -2,9 +2,9 @@
 
 namespace Meema\MediaConvert\Sources;
 
-use Meema\MediaConvert\Contracts\Source as SourceContract;
 use DOMDocument;
 use DOMNodeList;
+use Meema\MediaConvert\Contracts\Source as SourceContract;
 use RecursiveIteratorIterator;
 
 class WebsiteSource implements SourceContract

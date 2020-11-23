@@ -2,9 +2,9 @@
 
 namespace Meema\MediaConvert\Providers;
 
+use Illuminate\Support\ServiceProvider;
 use Meema\MediaConvert\Facades\MediaConvert;
 use Meema\MediaConvert\MediaConvertManager;
-use Illuminate\Support\ServiceProvider;
 
 class MediaConvertServiceProvider extends ServiceProvider
 {
