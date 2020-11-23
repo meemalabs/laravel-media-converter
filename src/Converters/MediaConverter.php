@@ -29,7 +29,7 @@ class MediaConverter implements Converter
             'version' => $config['version'],
             'region' => $config['region'],
             'credentials' => new Credentials($config['credentials']['key'], $config['credentials']['secret']),
-            'endpoint' => $result['Endpoints'][0]['Url']
+            'endpoint' => $result['Endpoints'][0]['Url'],
         ]);
     }
 
@@ -66,14 +66,14 @@ class MediaConverter implements Converter
     public function createJob(array $settings, $priority = 0)
     {
         return $this->client->createJob([
-            "Role" => config('media-convert.iam_arn'),
-            "Settings" => $settings, // JobSettings structure
-            "Queue" => config('media-convert.queue_arn'),
-            "UserMetadata" => [
-                "Customer" => "Amazon",
+            'Role' => config('media-convert.iam_arn'),
+            'Settings' => $settings, // JobSettings structure
+            'Queue' => config('media-convert.queue_arn'),
+            'UserMetadata' => [
+                'Customer' => 'Amazon',
             ],
-            "StatusUpdateInterval" => "SECONDS_60",
-            "Priority" => $priority
+            'StatusUpdateInterval' => 'SECONDS_60',
+            'Priority' => $priority,
         ]);
     }
 

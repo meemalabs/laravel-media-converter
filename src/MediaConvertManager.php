@@ -4,9 +4,9 @@ namespace Meema\MediaConvert;
 
 use Aws\Credentials\Credentials;
 use Aws\MediaConvert\MediaConvertClient;
-use Meema\MediaConvert\Converters\MediaConverter;
 use Exception;
 use Illuminate\Support\Manager;
+use Meema\MediaConvert\Converters\MediaConverter;
 
 class MediaConvertManager extends Manager
 {
