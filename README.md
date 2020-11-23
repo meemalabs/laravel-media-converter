@@ -113,6 +113,20 @@ Once you are in the Expose dashboard, you need to locate the `SubscribeURL` valu
 
 ![AWS SNS Subscription Confirmation Screenshot](https://i.imgur.com/ECGIBUY.png)
 
+#### Create CloudWatch Event
+
+1. Open the CloudWatch console at https://console.aws.amazon.com/cloudwatch/.
+2. In the navigation pane, choose Events, and then choose Create rule.
+3. Make sure the inputs match the following screenshots:
+
+![AWS CloudWatch Rule Creation Screenshot](https://i.imgur.com/2c8SEfN.png)
+
+As you can see in above screenshot, we needed to select the "Service Name", "Event Type", and the "Target" which is referencing our SNS Topic we earlier created.
+
+Lastly, the second & final step of the "Rule creation" prompts you to enter a name and an optional description. You may use any name, e.g. `mediaconvert-job-updates`.
+
+Now, your API will receive webhooks!
+
 ### Testing
 
 ``` bash
