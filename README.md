@@ -1,4 +1,4 @@
-# Text to Speech Package for Laravel
+# MediaConvert Package for Laravel
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/meema/laravel-mediaconvert.svg?style=flat-square)](https://packagist.org/packages/Meema/laravel-mediaconvert)
 [![Test](https://github.com/meemaio/laravel-mediaconvert/workflows/Test/badge.svg?branch=master)](https://github.com/ci-on/laravel-mediaconvert/actions)
