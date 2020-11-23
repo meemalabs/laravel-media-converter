@@ -60,9 +60,10 @@ class MediaConverter implements Converter
      * Creates a new job based on the settings passed.
      *
      * @param array $settings
+     * @param int $priority
      * @return \Aws\Result
      */
-    public function createJob(array $settings)
+    public function createJob(array $settings, $priority = 0)
     {
         return $this->client->createJob([
             "Role" => config('media-convert.iam_arn'),
@@ -71,6 +72,8 @@ class MediaConverter implements Converter
             "UserMetadata" => [
                 "Customer" => "Amazon",
             ],
+            "StatusUpdateInterval" => "SECONDS_60",
+            "Priority" => $priority
         ]);
     }
 

@@ -6,7 +6,7 @@ use Illuminate\Support\Facades\Facade;
 
 /**
  * @method static \Aws\Result cancelJob(string $id)
- * @method static \Aws\Result createJob(array $settings)
+ * @method static \Aws\Result createJob(array $settings, int $priority)
  * @method static \Aws\Result getJob(string $id)
  * @method static \Aws\Result listJobs(array $options)
  */
