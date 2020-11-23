@@ -42,10 +42,10 @@ class IncomingWebhookController extends Controller
             case 'INPUT_INFORMATION':
                 event(new MediaConversionHasInputInformation($message));
                 break;
-            case "COMPLETE":
+            case 'COMPLETE':
                 event(new MediaConversionHasCompleted($message));
                 break;
-            case "ERROR":
+            case 'ERROR':
                 event(new MediaConversionHasError($message));
                 break;
             default:
