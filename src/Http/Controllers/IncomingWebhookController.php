@@ -3,7 +3,6 @@
 namespace Meema\MediaConvert\Http\Controllers;
 
 use Aws\Sns\Message;
-use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use Meema\MediaConvert\Events\ConversionHasCompleted;
 use Meema\MediaConvert\Events\ConversionHasError;
