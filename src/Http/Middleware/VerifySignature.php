@@ -2,7 +2,6 @@
 
 namespace Meema\MediaConvert\Http\Middleware;
 
-use Aws\Sns\Exception\InvalidSnsMessageException;
 use Aws\Sns\Message;
 use Aws\Sns\MessageValidator;
 use Closure;
@@ -22,17 +21,16 @@ class VerifySignature
         try {
             // Create a message from the post data and validate its signature
             $message = Message::fromRawPostData();
-
             // Validate the message
             $validator = new MessageValidator();
 
             if ($validator->isValid($message)) {
                 return $next($request);
             }
-
-            throw new NotFoundHttpException();
-        } catch (InvalidSnsMessageException $e) {
-            throw new NotFoundHttpException();
+        } catch (\Exception $e) {
         }
+
+        // If you get this far it means the request is not found
+        throw new NotFoundHttpException();
     }
 }
