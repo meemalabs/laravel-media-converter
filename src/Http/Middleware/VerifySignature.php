@@ -27,9 +27,9 @@ class VerifySignature
 
             if ($validator->isValid($message)) {
                 return $next($request);
-            } else {
-                throw new NotFoundHttpException();
             }
+
+            throw new NotFoundHttpException();
         } catch (\Exception $e) {
             throw new NotFoundHttpException();
         }
