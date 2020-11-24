@@ -45,19 +45,19 @@ class IncomingWebhookController extends Controller
             case 'INPUT_INFORMATION':
                 event(new ConversionHasInputInformation($message));
                 break;
-            case "COMPLETE":
+            case 'COMPLETE':
                 event(new ConversionHasCompleted($message));
                 break;
-            case "STATUS_UPDATE":
+            case 'STATUS_UPDATE':
                 event(new ConversionHasStatusUpdate($message));
                 break;
-            case "NEW_WARNING":
+            case 'NEW_WARNING':
                 event(new ConversionHasNewWarning($message));
                 break;
-            case "QUEUE_HOP":
+            case 'QUEUE_HOP':
                 event(new ConversionQueueHop($message));
                 break;
-            case "ERROR":
+            case 'ERROR':
                 event(new ConversionHasError($message));
                 break;
             default:
