@@ -2,6 +2,7 @@
 
 namespace Meema\MediaConvert\Http\Controllers;
 
+use Aws\Sns\Message;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use Meema\MediaConvert\Events\ConversionHasCompleted;
@@ -20,13 +21,12 @@ class IncomingWebhookController extends Controller
     }
 
     /**
-     * @param \Illuminate\Http\Request $request
      * @throws \Exception
      */
-    public function __invoke(Request $request)
+    public function __invoke()
     {
-        $message = json_decode($request->getContent(), true)['Message'];
-        $detail = json_decode($message, true)['detail'];
+        $message = json_decode(Message::fromRawPostData()['Message'], true);
+        $detail = $message['detail'];
         $status = $detail['status'];
 
         try {

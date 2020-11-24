@@ -2,6 +2,7 @@
 
 namespace Meema\MediaConvert\Http\Middleware;
 
+use Aws\Sns\Exception\InvalidSnsMessageException;
 use Aws\Sns\Message;
 use Aws\Sns\MessageValidator;
 use Closure;
@@ -30,7 +31,7 @@ class VerifySignature
             }
 
             throw new NotFoundHttpException();
-        } catch (\Exception $e) {
+        } catch (InvalidSnsMessageException $e) {
             throw new NotFoundHttpException();
         }
     }
