@@ -14,6 +14,11 @@ use Meema\MediaConvert\Events\ConversionQueueHop;
 
 class IncomingWebhookController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('verify-signature');
+    }
+
     /**
      * @param \Illuminate\Http\Request $request
      * @throws \Exception

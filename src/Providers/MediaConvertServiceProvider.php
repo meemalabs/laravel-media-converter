@@ -2,14 +2,18 @@
 
 namespace Meema\MediaConvert\Providers;
 
+use Illuminate\Routing\Router;
 use Illuminate\Support\ServiceProvider;
 use Meema\MediaConvert\Facades\MediaConvert;
+use Meema\MediaConvert\Http\Middleware\VerifySignature;
 use Meema\MediaConvert\MediaConvertManager;
 
 class MediaConvertServiceProvider extends ServiceProvider
 {
     /**
      * Bootstrap the application services.
+     *
+     * @throws \Illuminate\Contracts\Container\BindingResolutionException
      */
     public function boot()
     {
@@ -20,6 +24,9 @@ class MediaConvertServiceProvider extends ServiceProvider
         }
 
         $this->loadRoutesFrom(__DIR__.'/../routes.php');
+
+        $router = $this->app->make(Router::class);
+        $router->aliasMiddleware('verify-signature', VerifySignature::class);
     }
 
     /**
