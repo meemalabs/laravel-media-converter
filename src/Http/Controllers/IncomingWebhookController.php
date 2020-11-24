@@ -31,7 +31,7 @@ class IncomingWebhookController extends Controller
         try {
             $this->fireEventFor($status, $message);
         } catch (\Exception $e) {
-            throw new \Exception("unhandled status event: $status");
+            throw new \Exception($e);
         }
     }
 
