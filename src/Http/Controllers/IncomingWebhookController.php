@@ -4,10 +4,13 @@ namespace Meema\MediaConvert\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
-use Meema\MediaConvert\Events\MediaConversionHasCompleted;
-use Meema\MediaConvert\Events\MediaConversionHasError;
-use Meema\MediaConvert\Events\MediaConversionHasInputInformation;
-use Meema\MediaConvert\Events\MediaConversionIsProgressing;
+use Meema\MediaConvert\Events\ConversionHasCompleted;
+use Meema\MediaConvert\Events\ConversionHasError;
+use Meema\MediaConvert\Events\ConversionHasInputInformation;
+use Meema\MediaConvert\Events\ConversionHasNewWarning;
+use Meema\MediaConvert\Events\ConversionHasStatusUpdate;
+use Meema\MediaConvert\Events\ConversionIsProgressing;
+use Meema\MediaConvert\Events\ConversionQueueHop;
 
 class IncomingWebhookController extends Controller
 {
@@ -37,16 +40,25 @@ class IncomingWebhookController extends Controller
     {
         switch ($status) {
             case 'PROGRESSING':
-                event(new MediaConversionIsProgressing($message));
+                event(new ConversionIsProgressing($message));
                 break;
             case 'INPUT_INFORMATION':
-                event(new MediaConversionHasInputInformation($message));
+                event(new ConversionHasInputInformation($message));
                 break;
             case "COMPLETE":
-                event(new MediaConversionHasCompleted($message));
+                event(new ConversionHasCompleted($message));
+                break;
+            case "STATUS_UPDATE":
+                event(new ConversionHasStatusUpdate($message));
+                break;
+            case "NEW_WARNING":
+                event(new ConversionHasNewWarning($message));
+                break;
+            case "QUEUE_HOP":
+                event(new ConversionQueueHop($message));
                 break;
             case "ERROR":
-                event(new MediaConversionHasError($message));
+                event(new ConversionHasError($message));
                 break;
             default:
                 throw new \Exception();
