@@ -1,6 +1,11 @@
 <?php
 
 return [
+    /*
+     * The fully qualified class name of the media model.
+     */
+    'media_model' => Meema\MediaConvert\Models\MediaConversion::class,
+
     /**
      * IAM Credentials from AWS.
      */
