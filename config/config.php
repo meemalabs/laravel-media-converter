@@ -49,10 +49,10 @@ return [
     'webhook_interval' => 60,
 
     /**
-     * This value indicates whether
-*
+     * This value indicates whether.
+     *
      * Note: in case you *do* want to track media conversions, you will need to execute the
-* migration as part of the package.
+     * migration as part of the package.
      */
     'track_media_conversions' => true,
 ];
