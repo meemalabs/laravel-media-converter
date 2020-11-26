@@ -42,28 +42,53 @@ php artisan vendor:publish --provider="Meema\MediaConvert\Providers\MediaConvert
 
 Next, please add the following keys their values to your `.env` file.
 
-```env
+```bash
 AWS_ACCESS_KEY_ID=xxxxxxx
 AWS_SECRET_ACCESS_KEY=xxxxxxx
 AWS_DEFAULT_REGION=us-east-1
+# 
+AWS_IAM_ARN=arn:aws:iam::xxxxxxx:role/MediaConvert_Default_Role
+AWS_QUEUE_ARN=arn:aws:mediaconvert:us-east-1:xxxxxxx:queues/Default
 ```
 
 The following is the content of the published config file:
 
 ```php
 return [
+    /*
+     * The fully qualified class name of your "media" model.
+     */
+    'media_model' => App\Models\Media::class,
+
     /**
      * IAM Credentials from AWS.
      */
     'credentials' => [
-        'key'     => env('AWS_ACCESS_KEY_ID', ''),
-        'secret'  => env('AWS_SECRET_ACCESS_KEY', ''),
+        'key' => env('AWS_ACCESS_KEY_ID'),
+        'secret' => env('AWS_SECRET_ACCESS_KEY'),
     ],
 
     'region' => env('AWS_DEFAULT_REGION', 'us-east-1'),
     'version' => 'latest',
 
+    /**
+     * Specify the IAM Role ARN.
+     *
+     * You can find the Role ARN visiting the following URL:
+     * https://console.aws.amazon.com/iam/home?region=us-east-1#/roles
+     * Please note to adjust the "region" in the URL above.
+     * Tip: in case you need to create a new Role, you may name it `MediaConvert_Default_Role`
+     * by making use of this name, AWS MediaConvert will default to using this IAM Role.
+     */
     'iam_arn' => env('AWS_IAM_ARN'),
+
+    /**
+     * Specify the queue you would like use.
+     *
+     * It can be found by visiting the following URL:
+     * https://us-east-1.console.aws.amazon.com/mediaconvert/home?region=us-east-1#/queues/details/Default
+     * Please note to adjust the "region" in the URL above.
+     */
     'queue_arn' => env('AWS_QUEUE_ARN'),
 ];
 ```

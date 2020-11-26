@@ -60,20 +60,33 @@ class MediaConverter implements Converter
      * Creates a new job based on the settings passed.
      *
      * @param array $settings
+     * @param int $mediaId
+     * @param array $tags
      * @param int $priority
      * @return \Aws\Result
      */
-    public function createJob(array $settings, $priority = 0)
+    public function createJob(array $settings, int $mediaId, $tags = [], $priority = 0)
     {
+        $interval = 'SECONDS_60'; // gracefully default to this value, in case the config value is missing or incorrect
+        $webhookInterval = config('media-convert.webhook_interval');
+        $allowedValues = [10, 12, 15, 20, 30, 60, 120, 180, 240, 300, 360, 420, 480, 540, 600];
+
+        if (in_array($webhookInterval, [$allowedValues])) {
+            $interval = 'SECONDS_'.$webhookInterval;
+        }
+
         return $this->client->createJob([
             'Role' => config('media-convert.iam_arn'),
-            'Settings' => $settings, // JobSettings structure
+            'Settings' => $settings,
             'Queue' => config('media-convert.queue_arn'),
             'UserMetadata' => [
                 'Customer' => 'Amazon',
             ],
-            'StatusUpdateInterval' => 'SECONDS_60',
+            'StatusUpdateInterval' => $interval,
             'Priority' => $priority,
+            'Tags' => array_merge([
+                'model_id' => $mediaId,
+            ], $tags),
         ]);
     }
 

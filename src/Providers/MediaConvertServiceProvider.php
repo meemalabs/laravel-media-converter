@@ -22,7 +22,7 @@ class MediaConvertServiceProvider extends ServiceProvider
                 __DIR__.'/../../config/config.php' => config_path('media-convert.php'),
             ], 'config');
 
-            if (! class_exists('CreateMediaConversionsTable')) {
+            if (config('media-convert.track_media_conversions') && ! class_exists('CreateMediaConversionsTable')) {
                 $this->publishes([
                     __DIR__.'/../../database/migrations/create_media_conversions_table.php.stub' => database_path('migrations/'.date('Y_m_d_His', time()).'_create_media_conversions_table.php'),
                 ], 'migrations');
