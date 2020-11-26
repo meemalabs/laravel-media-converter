@@ -19,7 +19,7 @@
         }
     ],
     "require": {
-        "php": "7.4",
+        "php": "^7.4",
         "ext-json": "*",
         "aws/aws-php-sns-message-validator": "^1.6"
     },
