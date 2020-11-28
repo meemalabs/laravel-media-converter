@@ -2,10 +2,37 @@
 
 namespace Meema\MediaConvert\Models;
 
+use App\Models\MediaConversionActivity;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\MorphTo;
 use Illuminate\Support\Str;
 
+/**
+ * MediaConversionActivity Model.
+ *
+ * @property int $id
+ * @property string $model_type
+ * @property int $model_id
+ * @property string $job_id
+ * @property mixed $message
+ * @property string $status
+ * @property int|null $percentage_completed
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
+ * @method static \Illuminate\Database\Eloquent\Builder|MediaConversionActivity newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|MediaConversionActivity newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|MediaConversionActivity query()
+ * @method static \Illuminate\Database\Eloquent\Builder|MediaConversionActivity whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|MediaConversionActivity whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|MediaConversionActivity whereJobId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|MediaConversionActivity whereMessage($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|MediaConversionActivity whereModelId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|MediaConversionActivity whereModelType($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|MediaConversionActivity wherePercentageCompleted($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|MediaConversionActivity whereStatus($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|MediaConversionActivity whereUpdatedAt($value)
+ * @mixin \Eloquent
+ */
 class MediaConversion extends Model
 {
     protected $table = 'media_conversion_activities';
