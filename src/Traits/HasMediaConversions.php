@@ -2,7 +2,6 @@
 
 namespace Meema\MediaConvert\Traits;
 
-use Illuminate\Database\Eloquent\Relations\MorphMany;
 use Meema\MediaConvert\Models\MediaConversion;
 
 trait HasMediaConversions
