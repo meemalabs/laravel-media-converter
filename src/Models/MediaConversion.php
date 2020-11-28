@@ -4,20 +4,50 @@ namespace Meema\MediaConvert\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\MorphTo;
+use Illuminate\Support\Str;
 
 class MediaConversion extends Model
 {
-    protected $table = 'media_conversions';
+    protected $table = 'media_conversion_activities';
 
     protected $guarded = [];
 
     protected $casts = [
-        'job_settings' => 'array',
         'message' => 'array',
     ];
+
+    public static function createActivity($message)
+    {
+        $status = Str::lower($message['detail']['status']);
+
+        $percentage = $message['detail']['jobProgress']['jobPercentComplete'] ?? null;
+
+        if ($status === 'complete') {
+            $percentage = 100;
+        }
+
+        $conversion = new MediaConversion();
+        $conversion->model_type = config('media-convert.media_model');
+        $conversion->model_id = $message['detail']['userMetadata']['model_id'];
+        $conversion->job_id = $message['detail']['jobId'];
+        $conversion->message = $message;
+        $conversion->status = $status;
+        $conversion->percentage_completed = $percentage;
+        $conversion->save();
+    }
 
     public function model(): MorphTo
     {
         return $this->morphTo();
+    }
+
+    public function inputDetails()
+    {
+        return $this->message['detail']['inputDetails'];
+    }
+
+    public function outputGroupDetails()
+    {
+        return $this->message['detail']['outputGroupDetails'];
     }
 }

@@ -3,11 +3,15 @@
 namespace Meema\MediaConvert\Traits;
 
 use Illuminate\Database\Eloquent\Relations\MorphMany;
+use Meema\MediaConvert\Models\MediaConversion;
 
 trait HasMediaConversions
 {
-    public function media(): MorphMany
+    /**
+     * Get all of the media items' conversions.
+     */
+    public function conversions()
     {
-        return $this->morphMany(config('media-library.media_model'), 'model');
+        return $this->morphMany(MediaConversion::class, 'model');
     }
 }

@@ -13,16 +13,13 @@ class CreateMediaConversionsTable extends Migration
      */
     public function up()
     {
-        Schema::create('media_conversions', function (Blueprint $table) {
+        Schema::create('media_conversion_activities', function (Blueprint $table) {
             $table->id();
-
             $table->morphs('model');
             $table->string('job_id');
-            $table->json('job_settings');
             $table->json('message');
-            $table->string('current_status');
-            $table->integer('percentage_completed')->default(0);
-
+            $table->string('status');
+            $table->integer('percentage_completed')->nullable();
             $table->timestamps();
         });
     }

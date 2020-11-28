@@ -61,32 +61,21 @@ class MediaConverter implements Converter
      *
      * @param array $settings
      * @param int $mediaId
-     * @param array $tags
+     * @param array $metaData
      * @param int $priority
      * @return \Aws\Result
      */
-    public function createJob(array $settings, int $mediaId, $tags = [], $priority = 0)
+    public function createJob(array $settings, int $mediaId, $metaData = [], $priority = 0)
     {
-        $interval = 'SECONDS_60'; // gracefully default to this value, in case the config value is missing or incorrect
-        $webhookInterval = config('media-convert.webhook_interval');
-        $allowedValues = [10, 12, 15, 20, 30, 60, 120, 180, 240, 300, 360, 420, 480, 540, 600];
-
-        if (in_array($webhookInterval, [$allowedValues])) {
-            $interval = 'SECONDS_'.$webhookInterval;
-        }
-
         return $this->client->createJob([
             'Role' => config('media-convert.iam_arn'),
             'Settings' => $settings,
             'Queue' => config('media-convert.queue_arn'),
-            'UserMetadata' => [
-                'Customer' => 'Amazon',
-            ],
-            'StatusUpdateInterval' => $interval,
-            'Priority' => $priority,
-            'Tags' => array_merge([
+            'UserMetadata' => array_merge([
                 'model_id' => $mediaId,
-            ], $tags),
+            ], $metaData),
+            'StatusUpdateInterval' => $this->getStatusUpdateInterval(),
+            'Priority' => $priority,
         ]);
     }
 
@@ -112,5 +101,17 @@ class MediaConverter implements Converter
     public function listJobs(array $options)
     {
         return $this->client->listJobs($options);
+    }
+
+    protected function getStatusUpdateInterval(): string
+    {
+        $webhookInterval = config('media-convert.webhook_interval');
+        $allowedValues = [10, 12, 15, 20, 30, 60, 120, 180, 240, 300, 360, 420, 480, 540, 600];
+
+        if (in_array($webhookInterval, [$allowedValues])) {
+            return 'SECONDS_'.$webhookInterval;
+        }
+
+        return 'SECONDS_60'; // gracefully default to this value, in case the config value is missing or incorrect
     }
 }

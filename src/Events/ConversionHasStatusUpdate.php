@@ -5,6 +5,7 @@ namespace Meema\MediaConvert\Events;
 use Illuminate\Broadcasting\InteractsWithSockets;
 use Illuminate\Foundation\Events\Dispatchable;
 use Illuminate\Queue\SerializesModels;
+use Meema\MediaConvert\Models\MediaConversion;
 
 class ConversionHasStatusUpdate
 {
@@ -20,5 +21,9 @@ class ConversionHasStatusUpdate
     public function __construct($message)
     {
         $this->message = $message;
+
+        if (config('media-convert.track_media_conversions')) {
+            MediaConversion::createActivity($message);
+        }
     }
 }
