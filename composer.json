@@ -1,6 +1,6 @@
 {
     "name": "meema/laravel-mediaconvert",
-    "description": "This package creates a shared API to easily use Text to Speech functionalities amongst different TTS providers.",
+    "description": "Easily integrate AWS MediaConvert into Laravel application.",
     "keywords": [
         "meema",
         "Meema",
@@ -9,13 +9,13 @@
         "aws",
         "mediaconvert"
     ],
-    "homepage": "https://github.com/meema/laravel-mediaconvert",
+    "homepage": "https://github.com/meemaio/laravel-mediaconvert",
     "license": "MIT",
     "type": "library",
     "authors": [
         {
             "name": "Meema Agency",
-            "email": "chris@Meema.agency"
+            "email": "chris@mee.ma"
         }
     ],
     "require": {
