@@ -44,7 +44,6 @@ Next, please add the following keys their values to your `.env` file.
 AWS_ACCESS_KEY_ID=xxxxxxx
 AWS_SECRET_ACCESS_KEY=xxxxxxx
 AWS_DEFAULT_REGION=us-east-1
-# 
 AWS_IAM_ARN=arn:aws:iam::xxxxxxx:role/MediaConvert_Default_Role
 AWS_QUEUE_ARN=arn:aws:mediaconvert:us-east-1:xxxxxxx:queues/Default
 ```
