@@ -1,7 +1,7 @@
 # MediaConvert Package for Laravel
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/meema/laravel-mediaconvert.svg?style=flat-square)](https://packagist.org/packages/meema/laravel-mediaconvert)
-[![Test](https://github.com/meemaio/laravel-mediaconvert/workflows/Test/badge.svg?branch=master)](https://github.com/meemaio/laravel-mediaconvert/actions)
+<!-- [[![Test](https://github.com/meemaio/laravel-mediaconvert/workflows/Test/badge.svg?branch=master)](https://github.com/meemaio/laravel-mediaconvert/actions) -->
 [![StyleCI](https://github.styleci.io/repos/264578171/shield?branch=master)](https://github.styleci.io/repos/264578171)
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/meemaio/laravel-mediaconvert/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/meemaio/laravel-mediaconvert/?branch=master)
 [![Total Downloads](https://img.shields.io/packagist/dt/Meema/laravel-mediaconvert.svg?style=flat-square)](https://packagist.org/packages/meema/laravel-mediaconvert)
@@ -19,7 +19,7 @@ use Meema\MediaConvert\Facades\MediaConvert;
 
 // run any of the following MediaConvert methods:
 $result = MediaConvert::cancelJob(string $id);
-$result = MediaConvert::createJob(array $settings);
+$result = MediaConvert::createJob(array $settings, array $metaData = [], int $priority = 0);
 $result = MediaConvert::getJob(string $id);
 $result = MediaConvert::listJobs(array $options);
 ```
@@ -56,9 +56,9 @@ The following is the content of the published config file:
 ```php
 return [
     /*
-     * The fully qualified class name of your "media" model.
+     * The fully qualified class name of the "media" model.
      */
-    'media_model' => App\Models\Media::class,
+    'media_model' => \App\Models\Media::class,
 
     /**
      * IAM Credentials from AWS.
@@ -90,6 +90,34 @@ return [
      * Please note to adjust the "region" in the URL above.
      */
     'queue_arn' => env('AWS_QUEUE_ARN'),
+
+    /**
+     * Specify how often MediaConvert sends STATUS_UPDATE events to Amazon CloudWatch Events.
+     * Set the interval, in seconds, between status updates.
+     *
+     * MediaConvert sends an update at this interval from the time the service begins processing
+     * your job to the time it completes the transcode or encounters an error.
+     *
+     * Accepted values: 10, 12, 15, 20, 30, 60, 120, 180, 240, 300, 360, 420, 480, 540, 600
+     */
+    'webhook_interval' => 60,
+
+    /**
+     * This value indicates whether.
+     *
+     * Note: in case you *do* want to track media conversions, you will need to execute the
+     * migration as part of the package.
+     */
+    'track_media_conversions' => true,
+
+    /**
+     * If track_media_conversions is set to true, you may specify the events you would like to fire/track.
+     * By default, it will track all status updates.
+     *
+     * Read more about MediaConvert conversion statuses here:
+     * https://docs.aws.amazon.com/mediaconvert/latest/ug/mediaconvert_cwe_events.html
+     */
+    'statuses_to_track' => ['complete', 'error', 'new_warning', 'progressing', 'input_information', 'queue_hop'],
 ];
 ```
 

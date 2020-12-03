@@ -2,12 +2,12 @@
     "name": "meema/laravel-mediaconvert",
     "description": "Easily integrate AWS MediaConvert into Laravel application.",
     "keywords": [
-        "meema",
-        "Meema",
+        "mediaconvert",
+        "video conversion",
         "media conversion",
+        "meema",
         "laravel",
-        "aws",
-        "mediaconvert"
+        "aws"
     ],
     "homepage": "https://github.com/meemaio/laravel-mediaconvert",
     "license": "MIT",
@@ -15,7 +15,7 @@
     "authors": [
         {
             "name": "Meema Agency",
-            "email": "chris@mee.ma"
+            "email": "chris@meema.io"
         }
     ],
     "require": {

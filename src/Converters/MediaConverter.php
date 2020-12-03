@@ -60,20 +60,17 @@ class MediaConverter implements Converter
      * Creates a new job based on the settings passed.
      *
      * @param array $settings
-     * @param int $mediaId
      * @param array $metaData
      * @param int $priority
      * @return \Aws\Result
      */
-    public function createJob(array $settings, int $mediaId, $metaData = [], $priority = 0)
+    public function createJob(array $settings, $metaData = [], $priority = 0)
     {
         return $this->client->createJob([
             'Role' => config('media-convert.iam_arn'),
             'Settings' => $settings,
             'Queue' => config('media-convert.queue_arn'),
-            'UserMetadata' => array_merge([
-                'model_id' => $mediaId,
-            ], $metaData),
+            'UserMetadata' => $metaData,
             'StatusUpdateInterval' => $this->getStatusUpdateInterval(),
             'Priority' => $priority,
         ]);
