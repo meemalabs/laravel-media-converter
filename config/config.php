@@ -55,4 +55,13 @@ return [
      * migration as part of the package.
      */
     'track_media_conversions' => true,
+
+    /**
+     * If track_media_conversions is set to true, you may specify the events you would like to fire/track.
+     * By default, it will track all status updates.
+     *
+     * Read more about MediaConvert conversion statuses here:
+     * https://docs.aws.amazon.com/mediaconvert/latest/ug/mediaconvert_cwe_events.html
+     */
+    'statuses_to_track' => ['complete', 'error', 'new_warning', 'progressing', 'input_information', 'queue_hop'],
 ];

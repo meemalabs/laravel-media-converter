@@ -47,10 +47,10 @@ class MediaConversion extends Model
     {
         $status = Str::lower($message['detail']['status']);
 
-        $percentage = $message['detail']['jobProgress']['jobPercentComplete'] ?? null;
-
         if ($status === 'complete') {
             $percentage = 100;
+        } else {
+            $percentage = $message['detail']['jobProgress']['jobPercentComplete'] ?? null;
         }
 
         $conversion = new MediaConversion();

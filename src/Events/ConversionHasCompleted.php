@@ -22,7 +22,10 @@ class ConversionHasCompleted
     {
         $this->message = $message;
 
-        if (config('media-convert.track_media_conversions')) {
+        if (
+            config('media-convert.track_media_conversions')
+            && in_array('complete', config('media-convert.events_to_track'))
+        ) {
             MediaConversion::createActivity($message);
         }
     }
