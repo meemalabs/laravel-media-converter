@@ -24,7 +24,7 @@ class ConversionHasError
 
         if (
             config('media-convert.track_media_conversions')
-            && in_array('error', config('media-convert.events_to_track'))
+            && in_array('error', config('media-convert.statuses_to_track'))
         ) {
             MediaConversion::createActivity($message);
         }

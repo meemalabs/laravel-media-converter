@@ -24,7 +24,7 @@ class ConversionHasInputInformation
 
         if (
             config('media-convert.track_media_conversions')
-            && in_array('input_information', config('media-convert.events_to_track'))
+            && in_array('input_information', config('media-convert.statuses_to_track'))
         ) {
             MediaConversion::createActivity($message);
         }

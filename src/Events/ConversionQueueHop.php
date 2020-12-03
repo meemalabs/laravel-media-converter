@@ -24,7 +24,7 @@ class ConversionQueueHop
 
         if (
             config('media-convert.track_media_conversions')
-            && in_array('queue_hop', config('media-convert.events_to_track'))
+            && in_array('queue_hop', config('media-convert.statuses_to_track'))
         ) {
             MediaConversion::createActivity($message);
         }
