@@ -10,6 +10,8 @@
 
 This is a wrapper package for AWS MediaConvert.
 
+![laravel-media-converter package image](https://banners.beyondco.de/Media%20Converter.png?theme=light&packageManager=composer+require&packageName=meema%2Flaravel-media-convert&pattern=architect&style=style_1&description=Easily+%26+quickly+integrate+with+AWS+MediaConvert.&md=1&showWatermark=1&fontSize=100px&images=https%3A%2F%2Flaravel.com%2Fimg%2Flogomark.min.svg)
+
 ## Usage
 
 ``` php
