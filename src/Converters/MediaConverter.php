@@ -1,10 +1,10 @@
 <?php
 
-namespace Meema\MediaConvert\Converters;
+namespace Meema\MediaConverter\Converters;
 
 use Aws\Credentials\Credentials;
 use Aws\MediaConvert\MediaConvertClient;
-use Meema\MediaConvert\Contracts\Converter;
+use Meema\MediaConverter\Contracts\Converter;
 
 class MediaConverter implements Converter
 {

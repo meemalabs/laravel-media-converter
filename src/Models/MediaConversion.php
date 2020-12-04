@@ -1,6 +1,6 @@
 <?php
 
-namespace Meema\MediaConvert\Models;
+namespace Meema\MediaConverter\Models;
 
 use App\Models\MediaConversionActivity;
 use Illuminate\Database\Eloquent\Model;

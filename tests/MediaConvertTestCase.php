@@ -1,8 +1,8 @@
 <?php
 
-namespace Meema\MediaConvert\Tests;
+namespace Meema\MediaConverter\Tests;
 
-use Meema\MediaConvert\Providers\MediaConvertServiceProvider;
+use Meema\MediaConverter\Providers\MediaConvertServiceProvider;
 use Orchestra\Testbench\TestCase;
 
 class MediaConvertTestCase extends TestCase

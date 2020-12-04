@@ -1,11 +1,11 @@
 <?php
 
-namespace Meema\MediaConvert\Events;
+namespace Meema\MediaConverter\Events;
 
 use Illuminate\Broadcasting\InteractsWithSockets;
 use Illuminate\Foundation\Events\Dispatchable;
 use Illuminate\Queue\SerializesModels;
-use Meema\MediaConvert\Models\MediaConversion;
+use Meema\MediaConverter\Models\MediaConversion;
 
 class ConversionHasInputInformation
 {

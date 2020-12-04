@@ -1,12 +1,12 @@
 <?php
 
-namespace Meema\MediaConvert\Providers;
+namespace Meema\MediaConverter\Providers;
 
 use Illuminate\Routing\Router;
 use Illuminate\Support\ServiceProvider;
-use Meema\MediaConvert\Facades\MediaConvert;
-use Meema\MediaConvert\Http\Middleware\VerifySignature;
-use Meema\MediaConvert\MediaConvertManager;
+use Meema\MediaConverter\Facades\MediaConvert;
+use Meema\MediaConverter\Http\Middleware\VerifySignature;
+use Meema\MediaConverter\MediaConvertManager;
 
 class MediaConvertServiceProvider extends ServiceProvider
 {

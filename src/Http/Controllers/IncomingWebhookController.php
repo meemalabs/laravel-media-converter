@@ -1,16 +1,16 @@
 <?php
 
-namespace Meema\MediaConvert\Http\Controllers;
+namespace Meema\MediaConverter\Http\Controllers;
 
 use Aws\Sns\Message;
 use Illuminate\Routing\Controller;
-use Meema\MediaConvert\Events\ConversionHasCompleted;
-use Meema\MediaConvert\Events\ConversionHasError;
-use Meema\MediaConvert\Events\ConversionHasInputInformation;
-use Meema\MediaConvert\Events\ConversionHasNewWarning;
-use Meema\MediaConvert\Events\ConversionHasStatusUpdate;
-use Meema\MediaConvert\Events\ConversionIsProgressing;
-use Meema\MediaConvert\Events\ConversionQueueHop;
+use Meema\MediaConverter\Events\ConversionHasCompleted;
+use Meema\MediaConverter\Events\ConversionHasError;
+use Meema\MediaConverter\Events\ConversionHasInputInformation;
+use Meema\MediaConverter\Events\ConversionHasNewWarning;
+use Meema\MediaConverter\Events\ConversionHasStatusUpdate;
+use Meema\MediaConverter\Events\ConversionIsProgressing;
+use Meema\MediaConverter\Events\ConversionQueueHop;
 
 class IncomingWebhookController extends Controller
 {

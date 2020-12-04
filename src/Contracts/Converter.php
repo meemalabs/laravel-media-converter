@@ -1,6 +1,6 @@
 <?php
 
-namespace Meema\MediaConvert\Contracts;
+namespace Meema\MediaConverter\Contracts;
 
 interface Converter
 {

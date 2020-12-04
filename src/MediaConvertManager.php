@@ -6,7 +6,7 @@ use Aws\Credentials\Credentials;
 use Aws\MediaConvert\MediaConvertClient;
 use Exception;
 use Illuminate\Support\Manager;
-use Meema\MediaConvert\Converters\MediaConverter;
+use Meema\MediaConverter\Converters\MediaConverter;
 
 class MediaConvertManager extends Manager
 {
@@ -24,7 +24,7 @@ class MediaConvertManager extends Manager
     /**
      * Create an Amazon MediaConvert Converter instance.
      *
-     * @return \Meema\MediaConvert\Converters\MediaConverter
+     * @return \Meema\MediaConverter\Converters\MediaConverter
      * @throws \Exception
      */
     public function createMediaConvertDriver(): MediaConverter

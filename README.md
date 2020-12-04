@@ -13,7 +13,7 @@ This is a wrapper package for AWS MediaConvert.
 ## Usage
 
 ``` php
-use Meema\MediaConvert\Facades\MediaConvert;
+use Meema\MediaConverter\Facades\MediaConvert;
 
 // run any of the following MediaConvert methods:
 $result = MediaConvert::cancelJob(string $id);
@@ -35,7 +35,7 @@ The package will automatically register itself.
 You may optionally publish the config file with:
 
 ```bash
-php artisan vendor:publish --provider="Meema\MediaConvert\Providers\MediaConvertServiceProvider" --tag="config"
+php artisan vendor:publish --provider="Meema\MediaConverter\Providers\MediaConvertServiceProvider" --tag="config"
 ```
 
 Next, please add the following keys their values to your `.env` file.

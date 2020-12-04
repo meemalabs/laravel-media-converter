@@ -1,6 +1,6 @@
 <?php
 
-namespace Meema\MediaConvert\Facades;
+namespace Meema\MediaConverter\Facades;
 
 use Illuminate\Support\Facades\Facade;
 

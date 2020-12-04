@@ -1,6 +1,6 @@
 <?php
 
-namespace Meema\MediaConvert\Http\Middleware;
+namespace Meema\MediaConverter\Http\Middleware;
 
 use Aws\Sns\Message;
 use Aws\Sns\MessageValidator;

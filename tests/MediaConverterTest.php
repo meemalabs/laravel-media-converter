@@ -1,6 +1,6 @@
 <?php
 
-namespace Meema\MediaConvert\Tests;
+namespace Meema\MediaConverter\Tests;
 
 use Aws\MediaConvert\MediaConvertClient;
 

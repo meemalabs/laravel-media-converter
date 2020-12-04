@@ -30,12 +30,12 @@
     },
     "autoload": {
         "psr-4": {
-            "Meema\\MediaConvert\\": "src"
+            "Meema\\MediaConverter\\": "src"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Meema\\MediaConvert\\Tests\\": "tests"
+            "Meema\\MediaConverter\\Tests\\": "tests"
         }
     },
     "scripts": {
@@ -48,10 +48,10 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Meema\\MediaConvert\\Providers\\MediaConvertServiceProvider"
+                "Meema\\MediaConverter\\Providers\\MediaConvertServiceProvider"
             ],
             "aliases": {
-                "MediaConvert": "Meema\\MediaConvert\\Facades\\MediaConvertFacade"
+                "MediaConvert": "Meema\\MediaConverter\\Facades\\MediaConvertFacade"
             }
         }
     }

@@ -1,8 +1,8 @@
 <?php
 
-namespace Meema\MediaConvert\Traits;
+namespace Meema\MediaConverter\Traits;
 
-use Meema\MediaConvert\Models\MediaConversion;
+use Meema\MediaConverter\Models\MediaConversion;
 
 trait HasMediaConversions
 {
