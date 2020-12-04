@@ -11,9 +11,9 @@ assignees: chris1904
 PLEASE READ: FILLING IN THE TEMPLATE IS REQUIRED!
 Issues that do not include enough information might not be picked up.
 
-Have you read laravel-mediaconvert's
-contributing guidelines (https://github.com/meemaio/laravel-mediaconvert/blob/master/CONTRIBUTING.md)
-and Code Of Conduct (https://github.com/meemaio/laravel-mediaconvert/master/CODE_OF_CONDUCT.md)?
+Have you read laravel-media-converter's
+contributing guidelines (https://github.com/meemaio/laravel-media-converter/blob/master/CONTRIBUTING.md)
+and Code Of Conduct (https://github.com/meemaio/laravel-media-converter/master/CODE_OF_CONDUCT.md)?
 By filing an idea, you are expected to comply with it, including treating everyone with respect.
 
 Please prefix your idea with: [IDEA].
@@ -28,7 +28,7 @@ Please prefix your idea with: [IDEA].
 
 * PHP version: <!-- put your FULL PHP version here -->
 * Laravel version: <!-- put your FULL Laravel version here -->
-* Package version: <!-- put FULL laravel-mediaconvert package version here -->
+* Package version: <!-- put FULL laravel-media-converter package version here -->
 
 ### Description
 

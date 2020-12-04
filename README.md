@@ -1,11 +1,11 @@
 # MediaConvert Package for Laravel
 
-[![Latest Version on Packagist](https://img.shields.io/packagist/v/meema/laravel-mediaconvert.svg?style=flat-square)](https://packagist.org/packages/meema/laravel-mediaconvert)
+[![Latest Version on Packagist](https://img.shields.io/packagist/v/meema/laravel-media-converter.svg?style=flat-square)](https://packagist.org/packages/meema/laravel-media-converter)
 [![StyleCI](https://github.styleci.io/repos/264578171/shield?branch=master)](https://github.styleci.io/repos/264578171)
-[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/meemaio/laravel-mediaconvert/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/meemaio/laravel-mediaconvert/?branch=master)
-[![Total Downloads](https://img.shields.io/packagist/dt/Meema/laravel-mediaconvert.svg?style=flat-square)](https://packagist.org/packages/meema/laravel-mediaconvert)
-[![License](https://img.shields.io/github/license/meemaio/laravel-mediaconvert.svg?style=flat-square)](https://github.com/meemaio/laravel-mediaconvert/blob/master/LICENSE.md)
-<!-- [[![Test](https://github.com/meemaio/laravel-mediaconvert/workflows/Test/badge.svg?branch=master)](https://github.com/meemaio/laravel-mediaconvert/actions) -->
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/meemaio/laravel-media-converter/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/meemaio/laravel-media-converter/?branch=master)
+[![Total Downloads](https://img.shields.io/packagist/dt/meema/laravel-media-converter.svg?style=flat-square)](https://packagist.org/packages/meema/laravel-media-converter)
+[![License](https://img.shields.io/github/license/meemaio/laravel-media-converter.svg?style=flat-square)](https://github.com/meemaio/laravel-media-converter/blob/master/LICENSE.md)
+<!-- [[![Test](https://github.com/meemaio/laravel-media-converter/workflows/Test/badge.svg?branch=master)](https://github.com/meemaio/laravel-media-converter/actions) -->
 <!-- [[![Build Status](wip)](ghactions) -->
 
 This is a wrapper package for AWS MediaConvert.
