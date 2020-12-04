@@ -1,5 +1,5 @@
 {
-    "name": "meema/laravel-media-convert",
+    "name": "meema/laravel-media-converter",
     "description": "Easily integrate AWS MediaConvert into Laravel application.",
     "keywords": [
         "mediaconvert",
@@ -9,7 +9,7 @@
         "laravel",
         "aws"
     ],
-    "homepage": "https://github.com/meemaio/laravel-mediaconvert",
+    "homepage": "https://github.com/meemaio/laravel-media-converter",
     "license": "MIT",
     "type": "library",
     "authors": [
