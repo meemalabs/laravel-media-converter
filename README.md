@@ -27,7 +27,7 @@ $result = MediaConvert::listJobs(array $options);
 You can install the package via composer:
 
 ```bash
-composer require meema/laravel-media-convert
+composer require meema/laravel-media-converter
 ```
 
 The package will automatically register itself.
