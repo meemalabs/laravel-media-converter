@@ -1,5 +1,5 @@
 {
-    "name": "meema/laravel-mediaconvert",
+    "name": "meema/laravel-media-convert",
     "description": "Easily integrate AWS MediaConvert into Laravel application.",
     "keywords": [
         "mediaconvert",
