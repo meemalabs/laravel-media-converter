@@ -1,6 +1,6 @@
 <?php
 
-namespace Meema\MediaConvert;
+namespace Meema\MediaConverter;
 
 use Aws\Credentials\Credentials;
 use Aws\MediaConvert\MediaConvertClient;
