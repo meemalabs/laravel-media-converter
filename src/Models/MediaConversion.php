@@ -2,13 +2,12 @@
 
 namespace Meema\MediaConverter\Models;
 
-use App\Models\MediaConversionActivity;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\MorphTo;
 use Illuminate\Support\Str;
 
 /**
- * MediaConversionActivity Model.
+ * MediaConversion Model.
  *
  * @property int $id
  * @property string $model_type
@@ -19,18 +18,18 @@ use Illuminate\Support\Str;
  * @property int|null $percentage_completed
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
- * @method static \Illuminate\Database\Eloquent\Builder|MediaConversionActivity newModelQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|MediaConversionActivity newQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|MediaConversionActivity query()
- * @method static \Illuminate\Database\Eloquent\Builder|MediaConversionActivity whereCreatedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|MediaConversionActivity whereId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|MediaConversionActivity whereJobId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|MediaConversionActivity whereMessage($value)
- * @method static \Illuminate\Database\Eloquent\Builder|MediaConversionActivity whereModelId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|MediaConversionActivity whereModelType($value)
- * @method static \Illuminate\Database\Eloquent\Builder|MediaConversionActivity wherePercentageCompleted($value)
- * @method static \Illuminate\Database\Eloquent\Builder|MediaConversionActivity whereStatus($value)
- * @method static \Illuminate\Database\Eloquent\Builder|MediaConversionActivity whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|MediaConversion newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|MediaConversion newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|MediaConversion query()
+ * @method static \Illuminate\Database\Eloquent\Builder|MediaConversion whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|MediaConversion whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|MediaConversion whereJobId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|MediaConversion whereMessage($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|MediaConversion whereModelId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|MediaConversion whereModelType($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|MediaConversion wherePercentageCompleted($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|MediaConversion whereStatus($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|MediaConversion whereUpdatedAt($value)
  * @mixin \Eloquent
  */
 class MediaConversion extends Model
