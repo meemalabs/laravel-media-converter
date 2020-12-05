@@ -63,5 +63,5 @@ return [
      * Read more about MediaConvert conversion statuses here:
      * https://docs.aws.amazon.com/mediaconvert/latest/ug/mediaconvert_cwe_events.html
      */
-    'statuses_to_track' => ['complete', 'error', 'new_warning', 'progressing', 'input_information', 'queue_hop'],
+    'statuses_to_track' => ['complete', 'error', 'new_warning', 'progressing', 'status_update', 'input_information', 'queue_hop'],
 ];
