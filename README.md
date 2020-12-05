@@ -34,7 +34,7 @@ composer require meema/laravel-media-converter
 
 The package will automatically register itself.
 
-You may optionally publish the config file with:
+Next, publish the config file with:
 
 ```bash
 php artisan vendor:publish --provider="Meema\MediaConverter\Providers\MediaConvertServiceProvider" --tag="config"
