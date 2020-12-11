@@ -9,12 +9,12 @@
         "laravel",
         "aws"
     ],
-    "homepage": "https://github.com/meemaio/laravel-media-converter",
+    "homepage": "https://github.com/meemalabs/laravel-media-converter",
     "license": "MIT",
     "type": "library",
     "authors": [
         {
-            "name": "Meema Agency",
+            "name": "Chriis Breuer",
             "email": "chris@meema.io"
         }
     ],

@@ -34,7 +34,7 @@ class MediaConverter implements Converter
     }
 
     /**
-     * Get the Polly Client.
+     * Get the MediaConvert Client.
      *
      * @return \Aws\MediaConvert\MediaConvertClient
      */

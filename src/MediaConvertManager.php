@@ -41,7 +41,7 @@ class MediaConvertManager extends Manager
     }
 
     /**
-     * Sets the polly client.
+     * Sets the MediaConvert client.
      *
      * @param array $config
      * @param Credentials $credentials
