@@ -82,7 +82,7 @@ class MediaConvertManager extends Manager
     }
 
     /**
-     * Get the default Text to Speech driver name.
+     * Get the default media conversion driver name.
      *
      * @return string
      */

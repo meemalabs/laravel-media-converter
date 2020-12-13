@@ -11,8 +11,8 @@ PLEASE READ: FILLING IN THE TEMPLATE IS REQUIRED!
 Issues that do not include enough information might not be picked up.
 Issues that have not been filled in using the issue template will be _closed_.
 
-Have you read laravel-media-converter's contributing guidelines (https://github.com/meemaio/laravel-text-to-speech/blob/master/CONTRIBUTING.md)
-and Code Of Conduct (https://github.com/meemaio/laravel-text-to-speech/master/CODE_OF_CONDUCT.md)?
+Have you read laravel-media-converter's contributing guidelines (https://github.com/meemalabs/laravel-media-converter/blob/master/CONTRIBUTING.md)
+and Code Of Conduct (https://github.com/meemalabs/laravel-media-converter/master/CODE_OF_CONDUCT.md)?
 
 By filing an Issue, you are expected to comply with it, including treating everyone with respect.
 
@@ -26,7 +26,7 @@ Put an X between the brackets if you have done the following:
 -->
 
 * [ ] Are you using Laravel 6 and above?
-* [ ] Able to reproduce the behaviour outside of your code, the problem is isolated to laravel-media-converter`
+* [ ] Able to reproduce the behavior outside of your code, the problem is isolated to laravel-media-converter`
 * [ ] Checked that your issue isn't already filed.
 * [ ] Checked if no PR was submitted that fixes this problem.
 
@@ -50,9 +50,9 @@ Put an X between the brackets if you have done the following:
 
 <!-- What you expect to happen -->
 
-**Actual behavior:** 
+**Actual behavior:**
 
-<!-- What actually happens. Please include screenshots, strack traces and anything that can help us understand the issue. -->
+<!-- What actually happens. Please include screenshots, stack traces and anything that can help us understand the issue. -->
 
 ### Additional Information
 
