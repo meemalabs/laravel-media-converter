@@ -53,7 +53,7 @@ class MediaConversion extends Model
         }
 
         $conversion = new MediaConversion();
-        $conversion->model_type = config('media-convert.media_model');
+        $conversion->model_type = config('media-converter.media_model');
         $conversion->model_id = $message['detail']['userMetadata']['model_id'];
         $conversion->job_id = $message['detail']['jobId'];
         $conversion->message = $message;

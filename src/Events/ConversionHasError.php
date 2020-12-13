@@ -23,8 +23,8 @@ class ConversionHasError
         $this->message = $message;
 
         if (
-            config('media-convert.track_media_conversions')
-            && in_array('error', config('media-convert.statuses_to_track'))
+            config('media-converter.track_media_conversions')
+            && in_array('error', config('media-converter.statuses_to_track'))
         ) {
             MediaConversion::createActivity($message);
         }

@@ -23,7 +23,7 @@ class MediaConverter implements Converter
     public function __construct(MediaConvertClient $client)
     {
         $result = $client->describeEndpoints([]);
-        $config = config('media-convert');
+        $config = config('media-converter');
 
         $this->client = new MediaConvertClient([
             'version' => $config['version'],
@@ -67,9 +67,9 @@ class MediaConverter implements Converter
     public function createJob(array $settings, $metaData = [], $priority = 0)
     {
         return $this->client->createJob([
-            'Role' => config('media-convert.iam_arn'),
+            'Role' => config('media-converter.iam_arn'),
             'Settings' => $settings,
-            'Queue' => config('media-convert.queue_arn'),
+            'Queue' => config('media-converter.queue_arn'),
             'UserMetadata' => $metaData,
             'StatusUpdateInterval' => $this->getStatusUpdateInterval(),
             'Priority' => $priority,
@@ -102,7 +102,7 @@ class MediaConverter implements Converter
 
     protected function getStatusUpdateInterval(): string
     {
-        $webhookInterval = config('media-convert.webhook_interval');
+        $webhookInterval = config('media-converter.webhook_interval');
         $allowedValues = [10, 12, 15, 20, 30, 60, 120, 180, 240, 300, 360, 420, 480, 540, 600];
 
         if (in_array($webhookInterval, [$allowedValues])) {

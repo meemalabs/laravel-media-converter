@@ -23,8 +23,8 @@ class ConversionHasNewWarning
         $this->message = $message;
 
         if (
-            config('media-convert.track_media_conversions')
-            && in_array('new_warning', config('media-convert.statuses_to_track'))
+            config('media-converterer.track_media_conversions')
+            && in_array('new_warning', config('media-converterer.statuses_to_track'))
         ) {
             MediaConversion::createActivity($message);
         }

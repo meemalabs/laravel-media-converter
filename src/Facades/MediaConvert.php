@@ -20,6 +20,6 @@ class MediaConvert extends Facade
      */
     protected static function getFacadeAccessor()
     {
-        return 'media-convert';
+        return 'media-converter';
     }
 }

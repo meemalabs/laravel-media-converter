@@ -6,9 +6,9 @@ use Illuminate\Routing\Router;
 use Illuminate\Support\ServiceProvider;
 use Meema\MediaConverter\Facades\MediaConvert;
 use Meema\MediaConverter\Http\Middleware\VerifySignature;
-use Meema\MediaConverter\MediaConvertManager;
+use Meema\MediaConverter\MediaConverterManager;
 
-class MediaConvertServiceProvider extends ServiceProvider
+class MediaConverterServiceProvider extends ServiceProvider
 {
     /**
      * Bootstrap the application services.
@@ -19,10 +19,10 @@ class MediaConvertServiceProvider extends ServiceProvider
     {
         if ($this->app->runningInConsole()) {
             $this->publishes([
-                __DIR__.'/../../config/config.php' => config_path('media-convert.php'),
+                __DIR__.'/../../config/config.php' => config_path('media-converter.php'),
             ], 'config');
 
-            if (config('media-convert.track_media_conversions') && ! class_exists('CreateMediaConversionsTable')) {
+            if (config('media-converter.track_media_conversions') && ! class_exists('CreateMediaConversionsTable')) {
                 $this->publishes([
                     __DIR__.'/../../database/migrations/create_media_conversion_activities_table.php.stub' => database_path('migrations/'.date('Y_m_d_His', time()).'_create_media_conversions_table.php'),
                 ], 'migrations');
@@ -40,9 +40,9 @@ class MediaConvertServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->mergeConfigFrom(__DIR__.'/../../config/config.php', 'media-convert');
+        $this->mergeConfigFrom(__DIR__.'/../../config/config.php', 'media-converter');
 
-        $this->registerMediaConvertManager();
+        $this->registerMediaConverterManager();
 
         $this->registerAliases();
     }
@@ -52,10 +52,10 @@ class MediaConvertServiceProvider extends ServiceProvider
      *
      * @return void
      */
-    protected function registerMediaConvertManager()
+    protected function registerMediaConverterManager()
     {
-        $this->app->singleton('media-convert', function ($app) {
-            return new MediaConvertManager($app);
+        $this->app->singleton('media-converter', function ($app) {
+            return new MediaConverterManager($app);
         });
     }
 
@@ -77,7 +77,7 @@ class MediaConvertServiceProvider extends ServiceProvider
     public function provides(): array
     {
         return [
-            'media-convert',
+            'media-converter',
         ];
     }
 }

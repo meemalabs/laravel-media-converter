@@ -8,7 +8,7 @@ use Exception;
 use Illuminate\Support\Manager;
 use Meema\MediaConverter\Converters\MediaConverter;
 
-class MediaConvertManager extends Manager
+class MediaConverterManager extends Manager
 {
     /**
      * Get a driver instance.
@@ -31,7 +31,7 @@ class MediaConvertManager extends Manager
     {
         $this->ensureAwsSdkIsInstalled();
 
-        $config = $this->config['media-convert'];
+        $config = $this->config['media-converter'];
 
         $credentials = $this->getCredentials($config['credentials']);
 
@@ -88,6 +88,6 @@ class MediaConvertManager extends Manager
      */
     public function getDefaultDriver(): string
     {
-        return 'media-convert';
+        return 'media-converter';
     }
 }

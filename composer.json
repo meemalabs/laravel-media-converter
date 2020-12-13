@@ -48,7 +48,7 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Meema\\MediaConverter\\Providers\\MediaConvertServiceProvider"
+                "Meema\\MediaConverter\\Providers\\MediaConverterServiceProvider"
             ],
             "aliases": {
                 "MediaConvert": "Meema\\MediaConverter\\Facades\\MediaConvertFacade"
