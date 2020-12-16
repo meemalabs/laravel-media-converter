@@ -24,7 +24,7 @@ class MediaConverterServiceProvider extends ServiceProvider
 
             if (config('media-converter.track_media_conversions') && ! class_exists('CreateMediaConversionsTable')) {
                 $this->publishes([
-                    __DIR__.'/../../database/migrations/create_media_conversion_activities_table.php.stub' => database_path('migrations/'.date('Y_m_d_His', time()).'_create_media_conversions_table.php'),
+                    __DIR__.'/../../database/migrations/create_media_conversions_table.php.stub' => database_path('migrations/'.date('Y_m_d_His', time()).'_create_media_conversions_table.php'),
                 ], 'migrations');
             }
         }
@@ -32,7 +32,10 @@ class MediaConverterServiceProvider extends ServiceProvider
         $this->loadRoutesFrom(__DIR__.'/../routes.php');
 
         $router = $this->app->make(Router::class);
-        $router->aliasMiddleware('verify-signature', VerifySignature::class);
+
+        if (in_array('verify-signature', $router->getMiddleware())) {
+            $router->aliasMiddleware('verify-signature', VerifySignature::class);
+        }
     }
 
     /**

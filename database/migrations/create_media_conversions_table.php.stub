@@ -13,7 +13,7 @@ class CreateMediaConversionsTable extends Migration
      */
     public function up()
     {
-        Schema::create('media_conversion_activities', function (Blueprint $table) {
+        Schema::create('media_conversions', function (Blueprint $table) {
             $table->id();
             $table->morphs('model');
             $table->string('job_id');

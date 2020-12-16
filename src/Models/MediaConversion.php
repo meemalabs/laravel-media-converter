@@ -34,8 +34,6 @@ use Illuminate\Support\Str;
  */
 class MediaConversion extends Model
 {
-    protected $table = 'media_conversion_activities';
-
     protected $guarded = [];
 
     protected $casts = [
