@@ -16,12 +16,16 @@ This is a wrapper package for AWS MediaConvert. Additional drivers may be added.
 
 ``` php
 use Meema\MediaConverter\Facades\MediaConvert;
+use Meema\MediaConverter\Jobs\CreateVideoConversion;
 
 // run any of the following MediaConvert methods:
 $result = MediaConvert::cancelJob(string $id);
 $result = MediaConvert::createJob(array $settings, array $metaData = [], int $priority = 0);
 $result = MediaConvert::getJob(string $id);
 $result = MediaConvert::listJobs(array $options);
+
+// you may also dispatch a job to convert a video
+dispatch(new CreateVideoConversion($jobSettings, $mediaId)); // $mediaId is optional & refers to the relating model's id
 ```
 
 ## Installation
