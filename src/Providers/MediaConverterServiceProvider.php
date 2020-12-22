@@ -33,7 +33,7 @@ class MediaConverterServiceProvider extends ServiceProvider
 
         $router = $this->app->make(Router::class);
 
-        if (in_array('verify-signature', $router->getMiddleware())) {
+        if (! in_array('verify-signature', $router->getMiddleware())) {
             $router->aliasMiddleware('verify-signature', VerifySignature::class);
         }
     }
