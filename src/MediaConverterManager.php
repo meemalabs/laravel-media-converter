@@ -88,6 +88,6 @@ class MediaConverterManager extends Manager
      */
     public function getDefaultDriver(): string
     {
-        return 'media-converter';
+        return 'media-convert';
     }
 }
