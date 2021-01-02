@@ -148,7 +148,7 @@ Second, let's create an AWS SNS Topic which will notify our "exposed" API endpoi
 
 4. Choose the topic ARN link for the topic that you just created. It looks something like this: `arn:aws:sns:region:123456789012:MediaConvertJobUpdate`.
 5. On the Topic details: `MediaConvertJobUpdate` page, in the Subscriptions section, choose "Create subscription".
-6. For Protocol, choose "HTTPS". For Endpoint, enter exposed API URL that you generated in a previous step, including the API URI.
+6. For Protocol, choose "HTTPS". For Endpoint, enter your "exposed" API URL which you generated in a previous step.
 
 For example,
 ```
