@@ -124,6 +124,26 @@ return [
 ];
 ```
 
+## Preparing Your Media Model (optional)
+
+This package includes a trait for your "Media model" that you may use to define the relationship of your media model with the tracked conversions.
+
+Simply use it as follows:
+
+```php
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Model;
+use Meema\MediaConverter\Traits\Convertable;
+
+class Media extends Model
+{
+    use Convertable; 
+    
+    // ...
+}
+```
+
 ### Set Up Webhooks (optional)
 
 This package makes use of webhooks in order to communicate the status/progress of the MediaConvert job. Please follow the following steps to enable webhooks for yourself.
