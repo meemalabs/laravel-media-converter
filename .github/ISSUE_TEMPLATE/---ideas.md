@@ -12,8 +12,8 @@ PLEASE READ: FILLING IN THE TEMPLATE IS REQUIRED!
 Issues that do not include enough information might not be picked up.
 
 Have you read laravel-media-converter's
-contributing guidelines (https://github.com/meemalabs/laravel-media-converter/blob/master/CONTRIBUTING.md)
-and Code Of Conduct (https://github.com/meemalabs/laravel-media-converter/master/CODE_OF_CONDUCT.md)?
+contributing guidelines (https://github.com/meemalabs/laravel-media-converter/blob/main/CONTRIBUTING.md)
+and Code Of Conduct (https://github.com/meemalabs/laravel-media-converter/main/CODE_OF_CONDUCT.md)?
 By filing an idea, you are expected to comply with it, including treating everyone with respect.
 
 Please prefix your idea with: [IDEA].
