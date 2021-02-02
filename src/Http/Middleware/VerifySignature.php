@@ -5,7 +5,7 @@ namespace Meema\MediaConverter\Http\Middleware;
 use Aws\Sns\Message;
 use Aws\Sns\MessageValidator;
 use Closure;
-use Illuminate\Http\Client\Request;
+use Illuminate\Http\Request;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 class VerifySignature
