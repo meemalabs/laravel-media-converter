@@ -22,14 +22,13 @@ class MediaConverter implements Converter
      */
     public function __construct(MediaConvertClient $client)
     {
-        $result = $client->describeEndpoints([]);
         $config = config('media-converter');
 
         $this->client = new MediaConvertClient([
             'version' => $config['version'],
             'region' => $config['region'],
             'credentials' => new Credentials($config['credentials']['key'], $config['credentials']['secret']),
-            'endpoint' => $result['Endpoints'][0]['Url'],
+            'endpoint' => $config['url'],
         ]);
     }
 
