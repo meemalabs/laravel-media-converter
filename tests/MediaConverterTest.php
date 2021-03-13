@@ -1,51 +1,46 @@
 <?php
 
-namespace Meema\MediaConverter\Tests;
+uses(Meema\MediaConverter\Tests\MediaConverterTestCase::class);
 
-use Aws\MediaConvert\MediaConvertClient;
+beforeEach(function () {
+    $this->initializeDotEnv();
+    $this->setDestination();
+    $this->setFileInput();
+    $this->setQvbrSettings();
+    $this->setSpriteImageSettings();
+});
 
-class MediaConverterTest extends MediaConvertTestCase
-{
-    /**
-     * @var \Aws\MediaConvert\MediaConvertClient
-     */
-    protected $client;
+it('it can successfully initialize settings', function () {
+    $this->assertTrue(is_array($this->settings));
+});
 
-    /**
-     * Setup client and results.
-     *
-     * @return void
-     */
-    public function setUp(): void
-    {
-        parent::setUp();
+it('it can successfully create a job', function () {
+   $response = Meema\MediaConverter\Facades\MediaConvert::createJob($this->settings, []);
 
-        $this->client = $this->getMockBuilder(MediaConvertClient::class)
-            ->disableOriginalConstructor()
-            ->getMock();
-    }
+   $this->assertEquals($response['@metadata']['statusCode'], 201);
+});
 
-    /** @test */
-    public function it_can_successfully_create_a_job()
-    {
-        $this->markTestIncomplete();
-    }
+it('it can successfully get a job', function () {
+    // Just a fixed Id fetched from aws media convert jobs
+    $jobId = '1615614565083-g1cgjm';
 
-    /** @test */
-    public function it_can_get_a_job()
-    {
-        $this->markTestIncomplete();
-    }
+    $response = Meema\MediaConverter\Facades\MediaConvert::getJob($jobId);
 
-    /** @test */
-    public function it_can_cancel_a_job()
-    {
-        $this->markTestIncomplete();
-    }
+    $this->assertEquals($response['@metadata']['statusCode'], 200);
+    $this->assertEquals($response['Job']['Id'], $jobId);
+ });
 
-    /** @test */
-    public function it_can_list_jobs()
-    {
-        $this->markTestIncomplete();
-    }
-}
+ it('it can successfully cancel a job', function () {
+    $job = Meema\MediaConverter\Facades\MediaConvert::createJob($this->settings, []);
+
+    $response = Meema\MediaConverter\Facades\MediaConvert::cancelJob($job['Job']['Id']);
+
+    $this->assertEquals($response['@metadata']['statusCode'], 202);
+ });
+
+ it('it can successfully list jobs', function () {
+    $response = Meema\MediaConverter\Facades\MediaConvert::listJobs([]);
+
+    $this->assertEquals($response['@metadata']['statusCode'], 200);
+    $this->assertTrue(count($response) > 0);
+ });
