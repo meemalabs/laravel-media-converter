@@ -24,7 +24,7 @@ class MediaConverterTestCase extends TestCase
 
     public function setDestination()
     {
-        $config =  config('media-converter.settings');
+        $config = config('media-converter.settings');
         $this->settings = $config;
 
         $destination = 's3://meema-stage/';
@@ -41,7 +41,7 @@ class MediaConverterTestCase extends TestCase
         $this->settings['Inputs'][0]['FileInput'] = $fileDestination;
     }
 
-     /**
+    /**
      * @see https://docs.aws.amazon.com/mediaconvert/latest/ug/cbr-vbr-qvbr.html?icmpid=docs_mediaconvert_errormsg
      */
     public function setQvbrSettings()

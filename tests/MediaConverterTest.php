@@ -15,9 +15,9 @@ it('it can successfully initialize settings', function () {
 });
 
 it('it can successfully create a job', function () {
-   $response = Meema\MediaConverter\Facades\MediaConvert::createJob($this->settings, []);
+    $response = Meema\MediaConverter\Facades\MediaConvert::createJob($this->settings, []);
 
-   $this->assertEquals($response['@metadata']['statusCode'], 201);
+    $this->assertEquals($response['@metadata']['statusCode'], 201);
 });
 
 it('it can successfully get a job', function () {
@@ -28,19 +28,19 @@ it('it can successfully get a job', function () {
 
     $this->assertEquals($response['@metadata']['statusCode'], 200);
     $this->assertEquals($response['Job']['Id'], $jobId);
- });
+});
 
  it('it can successfully cancel a job', function () {
-    $job = Meema\MediaConverter\Facades\MediaConvert::createJob($this->settings, []);
+     $job = Meema\MediaConverter\Facades\MediaConvert::createJob($this->settings, []);
 
-    $response = Meema\MediaConverter\Facades\MediaConvert::cancelJob($job['Job']['Id']);
+     $response = Meema\MediaConverter\Facades\MediaConvert::cancelJob($job['Job']['Id']);
 
-    $this->assertEquals($response['@metadata']['statusCode'], 202);
+     $this->assertEquals($response['@metadata']['statusCode'], 202);
  });
 
  it('it can successfully list jobs', function () {
-    $response = Meema\MediaConverter\Facades\MediaConvert::listJobs([]);
+     $response = Meema\MediaConverter\Facades\MediaConvert::listJobs([]);
 
-    $this->assertEquals($response['@metadata']['statusCode'], 200);
-    $this->assertTrue(count($response) > 0);
+     $this->assertEquals($response['@metadata']['statusCode'], 200);
+     $this->assertTrue(count($response) > 0);
  });
