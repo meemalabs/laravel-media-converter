@@ -50,6 +50,7 @@ Next, please add the following keys their values to your `.env` file.
 AWS_ACCESS_KEY_ID=xxxxxxx
 AWS_SECRET_ACCESS_KEY=xxxxxxx
 AWS_DEFAULT_REGION=us-east-1
+AWS_MEDIACONVERT_ACCOUNT_URL=https://xxxxxxxxx.mediaconvert.us-east-1.amazonaws.com
 AWS_IAM_ARN=arn:aws:iam::xxxxxxx:role/MediaConvert_Default_Role
 AWS_QUEUE_ARN=arn:aws:mediaconvert:us-east-1:xxxxxxx:queues/Default
 ```
@@ -70,9 +71,9 @@ return [
         'key' => env('AWS_ACCESS_KEY_ID'),
         'secret' => env('AWS_SECRET_ACCESS_KEY'),
     ],
-
     'region' => env('AWS_DEFAULT_REGION', 'us-east-1'),
     'version' => 'latest',
+    'url' => env('AWS_MEDIACONVERT_ACCOUNT_URL'),
 
     /**
      * Specify the IAM Role ARN.
