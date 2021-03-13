@@ -2,7 +2,7 @@
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/meema/laravel-media-converter.svg?style=flat-square)](https://packagist.org/packages/meema/laravel-media-converter)
 [![StyleCI](https://github.styleci.io/repos/314969855/shield?branch=main)](https://github.styleci.io/repos/314969855)
-[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/meemaio/laravel-media-converter/badges/quality-score.png?b=main)](https://scrutinizer-ci.com/g/meemaio/laravel-media-converter/?branch=main)
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/meemalabs/laravel-media-converter/badges/quality-score.png?b=main)](https://scrutinizer-ci.com/g/meemalabs/laravel-media-converter/?branch=main)
 [![Total Downloads](https://img.shields.io/packagist/dt/meema/laravel-media-converter.svg?style=flat-square)](https://packagist.org/packages/meema/laravel-media-converter)
 [![License](https://img.shields.io/github/license/meemalabs/laravel-media-converter.svg?style=flat-square)](https://github.com/meemalabs/laravel-media-converter/blob/main/LICENSE.md)
 <!-- [[![Test](https://github.com/meemalabs/laravel-media-converter/workflows/Test/badge.svg?branch=main)](https://github.com/meemalabs/laravel-media-converter/actions) -->
