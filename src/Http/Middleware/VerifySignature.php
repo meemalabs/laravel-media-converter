@@ -30,6 +30,7 @@ class VerifySignature
                 return $next($request);
             }
         } catch (\Exception $e) {
+            throw new NotFoundHttpException($e->getMessage());
         }
 
         // If you get this far it means the request is not found

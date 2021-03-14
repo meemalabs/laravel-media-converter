@@ -24,11 +24,11 @@ class IncomingWebhookController extends Controller
      */
     public function __invoke()
     {
-        $message = json_decode(Message::fromRawPostData()['Message'], true);
-        $detail = $message['detail'];
-        $status = $detail['status'];
-
         try {
+            $message = json_decode(Message::fromRawPostData()['Message'] ?? '', true);
+            $detail = $message['detail'];
+            $status = $detail['status'];
+
             $this->fireEventFor($status, $message);
         } catch (\Exception $e) {
             throw new \Exception($e);
