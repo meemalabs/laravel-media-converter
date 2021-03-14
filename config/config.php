@@ -67,7 +67,7 @@ return [
 
     'settings' => [
         'OutputGroups' => [
-            // first thumbnails for sprite generation
+            // thumbnail generation
             [
                 'CustomName' => 'Thumbnails',
                 'Name' => 'File Group',
@@ -114,143 +114,7 @@ return [
                 ],
             ],
 
-            // second hls
-            [
-                'Name'=> 'Apple HLS',
-                'Outputs' => [
-                    [
-                        'ContainerSettings' => [
-                            'Container' => 'M3U8',
-                            'M3u8Settings' => [
-                                'AudioFramesPerPes' => 4,
-                                'PcrControl' => 'PCR_EVERY_PES_PACKET',
-                                'PmtPid' => 480,
-                                'PrivateMetadataPid' => 503,
-                                'ProgramNumber' => 1,
-                                'PatInterval' => 0,
-                                'PmtInterval' => 0,
-                                'Scte35Source' => 'NONE',
-                                'NielsenId3' > 'ONE',
-                                'TimedMetadata' => 'NONE',
-                                'VideoPid' => 481,
-                                'AudioPids' => [
-                                    482,
-                                    483,
-                                    484,
-                                    485,
-                                    486,
-                                    487,
-                                    488,
-                                    489,
-                                    490,
-                                    491,
-                                    492,
-                                ],
-                                'AudioDuration' => 'DEFAULT_CODEC_DURATION',
-                            ],
-                        ],
-                        'VideoDescription' => [
-                            'ScalingBehavior' => 'DEFAULT',
-                            'TimecodeInsertion' => 'DISABLED',
-                            'AntiAlias' => 'ENABLED',
-                            'Sharpness' => 50,
-                            'CodecSettings' => [
-                                'Codec' => 'H_264',
-                                'H264Settings' => [
-                                    'InterlaceMode' => 'PROGRESSIVE',
-                                    'NumberReferenceFrames' => 3,
-                                    'Syntax' => 'DEFAULT',
-                                    'Softness' => 0,
-                                    'GopClosedCadence' => 1,
-                                    'GopSize' => 90,
-                                    'Slices' => 1,
-                                    'GopBReference' => 'DISABLED',
-                                    'SlowPal' => 'DISABLED',
-                                    'EntropyEncoding' => 'CABAC',
-                                    'FramerateControl' => 'INITIALIZE_FROM_SOURCE',
-                                    'RateControlMode' => 'QVBR',
-                                    'CodecProfile' => 'MAIN',
-                                    'Telecine' => 'NONE',
-                                    'MinIInterval' => 0,
-                                    'AdaptiveQuantization' => 'AUTO',
-                                    'CodecLevel' => 'AUTO',
-                                    'FieldEncoding' => 'PAFF',
-                                    'SceneChangeDetect' => 'ENABLED',
-                                    'QualityTuningLevel' => 'MULTI_PASS_HQ',
-                                    'FramerateConversionAlgorithm' => 'DUPLICATE_DROP',
-                                    'UnregisteredSeiTimecode' => 'DISABLED',
-                                    'GopSizeUnits' => 'FRAMES',
-                                    'ParControl' => 'INITIALIZE_FROM_SOURCE',
-                                    'NumberBFramesBetweenReferenceFrames' => 2,
-                                    'RepeatPps' => 'DISABLED',
-                                    'DynamicSubGop' => 'STATIC',
-                                ],
-                            ],
-                            'AfdSignaling' => 'NONE',
-                            'DropFrameTimecode' => 'ENABLED',
-                            'RespondToAfd' => 'NONE',
-                            'ColorMetadata' => 'INSERT',
-                        ],
-                        'AudioDescriptions' => [
-                            [
-                                'AudioTypeControl' => 'FOLLOW_INPUT',
-                                'CodecSettings' => [
-                                    'Codec' => 'AAC',
-                                    'AacSettings' => [
-                                        'AudioDescriptionBroadcasterMix' => 'NORMAL',
-                                        'Bitrate' => 96000,
-                                        'RateControlMode' => 'CBR',
-                                        'CodecProfile' => 'LC',
-                                        'CodingMode' => 'CODING_MODE_2_0',
-                                        'RawFormat' => 'NONE',
-                                        'SampleRate' => 48000,
-                                        'Specification' => 'MPEG4',
-                                    ],
-                                ],
-                                'LanguageCodeControl' => 'FOLLOW_INPUT',
-                            ],
-                        ],
-                        'OutputSettings' => [
-                            'HlsSettings' => [
-                                'AudioGroupId' => 'program_audio',
-                                'AudioOnlyContainer' => 'AUTOMATIC',
-                                'IFrameOnlyManifest' => 'EXCLUDE',
-                            ],
-                        ],
-                    ],
-                ],
-                'OutputGroupSettings' => [
-                    'Type' => 'HLS_GROUP_SETTINGS',
-                    'HlsGroupSettings' => [
-                        'ManifestDurationFormat' => 'INTEGER',
-                        'SegmentLength' => 10,
-                        'TimedMetadataId3Period' => 10,
-                        'CaptionLanguageSetting' => 'OMIT',
-                        'Destination' => null,
-                        'TimedMetadataId3Frame' => 'PRIV',
-                        'CodecSpecification' => 'RFC_4281',
-                        'OutputSelection' => 'MANIFESTS_AND_SEGMENTS',
-                        'ProgramDateTimePeriod' => 600,
-                        'MinSegmentLength' => 0,
-                        'MinFinalSegmentLength' => 0,
-                        'DirectoryStructure' => 'SINGLE_DIRECTORY',
-                        'ProgramDateTime' => 'EXCLUDE',
-                        'SegmentControl' => 'SEGMENTED_FILES',
-                        'ManifestCompression' => 'NONE',
-                        'ClientCache' => 'ENABLED',
-                        'AudioOnlyHeader' => 'INCLUDE',
-                        'StreamInfResolution' => 'INCLUDE',
-                    ],
-                ],
-                'AutomatedEncodingSettings' => [
-                    'AbrSettings' => [
-                        'MaxAbrBitrate' => 8000000,
-                        'MinAbrBitrate' => 600000,
-                    ],
-                ],
-            ],
-
-            // third mp4
+            // optimize mp4 output setting
             [
                 'CustomName' => 'MP4',
                 'Name' => 'File Group',
