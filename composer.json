@@ -22,14 +22,14 @@
         "php": "^7.3|^8.0",
         "ext-json": "*",
         "aws/aws-php-sns-message-validator": "^1.6",
-        "aws/aws-sdk-php": "^3.163",
-        "vlucas/phpdotenv": "^5.3"
+        "aws/aws-sdk-php": "^3.163"
     },
     "require-dev": {
-        "orchestra/testbench": "^3.5.0|^3.6.0|^4.0|^5.0|^6.0",
+        "orchestra/testbench": "^5.0|^6.0",
         "pestphp/pest": "^1.0",
         "pestphp/pest-plugin-laravel": "^1.0",
-        "phpunit/phpunit": "^5.0|^6.0|^8.0|^9.3"
+        "phpunit/phpunit": "^8.0|^9.3",
+        "vlucas/phpdotenv": "^4.2|^5.3"
     },
     "autoload": {
         "psr-4": {
