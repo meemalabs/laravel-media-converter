@@ -4,10 +4,7 @@ uses(Meema\MediaConverter\Tests\MediaConverterTestCase::class);
 
 beforeEach(function () {
     $this->initializeDotEnv();
-    $this->setDestination();
-    $this->setFileInput();
-    $this->setQvbrSettings();
-    $this->setSpriteImageSettings();
+    $this->initializeSettings();
 });
 
 it('it can successfully initialize settings', function () {
