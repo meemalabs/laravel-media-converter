@@ -16,10 +16,11 @@ interface Converter
      * Creates a new job based on the settings passed.
      *
      * @param array $settings
+     * @param array $metaData
      * @param int $priority
      * @return \Aws\Result
      */
-    public function createJob(array $settings, int $priority);
+    public function createJob(array $settings, array $metaData, int $priority);
 
     /**
      * Gets the job.
