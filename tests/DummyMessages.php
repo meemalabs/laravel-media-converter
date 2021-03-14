@@ -1,5 +1,7 @@
 <?php
 
+// this file is currently only used to analyze the data structure of MediaConvert's responses
+
 namespace Meema\MediaConverter\Tests;
 
 class DummyMessages
