@@ -7,9 +7,9 @@ use Orchestra\Testbench\TestCase;
 
 class MediaConverterTestCase extends TestCase
 {
-    public array $settings = [];
+    public $settings = [];
 
-    public array $sizes = [];
+    public $sizes = [];
 
     protected function getPackageProviders($app): array
     {
