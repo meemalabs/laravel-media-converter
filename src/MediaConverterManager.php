@@ -6,7 +6,7 @@ use Aws\Credentials\Credentials;
 use Aws\MediaConvert\MediaConvertClient;
 use Exception;
 use Illuminate\Support\Manager;
-use Meema\MediaConverter\Converters\MediaConverter;
+use Meema\MediaConverter\Converters\MediaConvert;
 
 class MediaConverterManager extends Manager
 {
@@ -24,10 +24,10 @@ class MediaConverterManager extends Manager
     /**
      * Create an Amazon MediaConvert Converter instance.
      *
-     * @return \Meema\MediaConverter\Converters\MediaConverter
+     * @return \Meema\MediaConverter\Converters\MediaConvert
      * @throws \Exception
      */
-    public function createMediaConvertDriver(): MediaConverter
+    public function createMediaConvertDriver(): MediaConvert
     {
         $this->ensureAwsSdkIsInstalled();
 
@@ -37,7 +37,7 @@ class MediaConverterManager extends Manager
 
         $client = $this->setMediaConvertClient($config, $credentials);
 
-        return new MediaConverter($client);
+        return new MediaConvert($client);
     }
 
     /**

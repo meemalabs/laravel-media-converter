@@ -6,10 +6,10 @@ use Aws\Credentials\Credentials;
 use Aws\MediaConvert\MediaConvertClient;
 use Meema\MediaConverter\Contracts\Converter;
 
-class MediaConverter implements Converter
+class MediaConvert implements Converter
 {
     /**
-     * Client instance of MediaConvert.
+     * Client instance of AWS MediaConvert.
      *
      * @var \Aws\MediaConvert\MediaConvertClient
      */
