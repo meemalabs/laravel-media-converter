@@ -7,11 +7,11 @@ use Orchestra\Testbench\TestCase;
 
 class MediaConverterTestCase extends TestCase
 {
-    public $settings = [];
+    public array $settings = [];
 
-    public $sizes = [];
+    public array $sizes = [];
 
-    protected function getPackageProviders($app)
+    protected function getPackageProviders($app): array
     {
         return [MediaConverterServiceProvider::class];
     }

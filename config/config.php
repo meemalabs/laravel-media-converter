@@ -67,7 +67,7 @@ return [
 
     'settings' => [
         'OutputGroups' => [
-            // first thumbnails for sprite generation
+            // thumbnail generation
             [
                 'CustomName' => 'Thumbnails',
                 'Name' => 'File Group',
@@ -114,7 +114,7 @@ return [
                 ],
             ],
 
-            // third mp4
+            // optimize-mp4 output setting
             [
                 'CustomName' => 'MP4',
                 'Name' => 'File Group',

@@ -34,7 +34,7 @@
           "OutputGroupSettings":{
              "Type":"FILE_GROUP_SETTINGS",
              "FileGroupSettings":{
-                "Destination":"s3:\/\/meema-stage\/\/thumbnails\/",
+                "Destination":"s3:\/\/meema-stage\/\/pest-tests\/\/thumbnails\/",
                 "DestinationSettings":{
                    "S3Settings":{
                       "AccessControl":{
@@ -131,7 +131,7 @@
           "OutputGroupSettings":{
              "Type":"FILE_GROUP_SETTINGS",
              "FileGroupSettings":{
-                "Destination":"s3:\/\/meema-stage\/\/mp4\/",
+                "Destination":"s3:\/\/meema-stage\/\/pest-tests\/\/mp4\/",
                 "DestinationSettings":{
                    "S3Settings":{
                       "AccessControl":{
@@ -162,7 +162,7 @@
           "DeblockFilter":"DISABLED",
           "DenoiseFilter":"DISABLED",
           "TimecodeSource":"EMBEDDED",
-          "FileInput":"s3:\/\/meema-stage\/test-me.mp4"
+          "FileInput":"s3:\/\/meema-stage\/pest-tests\/\/test-me.mp4"
        }
     ]
  }
