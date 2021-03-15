@@ -13,7 +13,7 @@ class MediaConvert implements Converter
      *
      * @var \Aws\MediaConvert\MediaConvertClient
      */
-    protected MediaConvertClient $client;
+    protected $client;
 
     /**
      * Construct converter.
