@@ -48,7 +48,7 @@ jobs:
                   composer update --${{ matrix.dependency-version }} --prefer-dist --no-interaction --no-suggest
 
             - name: Create .env file
-              run: cp .env.example .env
+              run: touch .env # this can be an empty file, just need the test to pass. GitHub Actions uses GitHub Secrets
 
             - name: Execute tests
               run: vendor/bin/pest
