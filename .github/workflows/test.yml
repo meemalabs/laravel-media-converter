@@ -27,7 +27,7 @@ jobs:
               uses: shivammathur/setup-php@v1
               with:
                   php-version: ${{ matrix.php }}
-                  extensions: mbstring, intl, pdo, pdo_sqlite, sqlite, curl
+                  extensions: mbstring, intl, pdo, pdo_sqlite, sqlite, curl, json, pcre, simplexml, openssl
               env:
                   AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
                   AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
