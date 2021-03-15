@@ -2,6 +2,9 @@
     "name": "meema/laravel-media-converter",
     "description": "Easily & quickly integrate your application with AWS MediaConvert.",
     "keywords": [
+        "thumbnail generation",
+        "mp4",
+        "optimize",
         "mediaconvert",
         "video conversion",
         "media conversion",
