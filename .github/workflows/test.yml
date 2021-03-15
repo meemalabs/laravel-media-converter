@@ -28,6 +28,13 @@ jobs:
               with:
                   php-version: ${{ matrix.php }}
                   extensions: mbstring, intl, pdo, pdo_sqlite, sqlite
+              env:
+                  AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+                  AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+                  AWS_DEFAULT_REGION: 'us-east-1'
+                  AWS_MEDIACONVERT_ACCOUNT_URL:  ${{ secrets.AWS_MEDIACONVERT_ACCOUNT_URL }}
+                  AWS_IAM_ARN:  ${{ secrets.AWS_IAM_ARN }}
+                  AWS_QUEUE_ARN:  ${{ secrets.AWS_QUEUE_ARN }}
 
             - name: Cache dependencies
               uses: actions/cache@v1
