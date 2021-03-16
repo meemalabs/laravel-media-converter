@@ -1,6 +1,6 @@
 <?php
 
-namespace Meema\MediaConverter\Helpers;
+namespace Meema\MediaConverter\Support;
 
 class DefaultMediaConvertJobSettings
 {

@@ -65,5 +65,5 @@ return [
      */
     'statuses_to_track' => ['complete', 'error', 'new_warning', 'progressing', 'status_update', 'input_information', 'queue_hop'],
 
-    'job_settings' => \Meema\MediaConverter\Helpers\DefaultMediaConvertJobSettings::class,
+    'job_settings' => \Meema\MediaConverter\Support\DefaultMediaConvertJobSettings::class,
 ];
