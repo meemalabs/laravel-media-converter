@@ -8,9 +8,7 @@ use Orchestra\Testbench\TestCase;
 
 class MediaConverterTestCase extends TestCase
 {
-    public $settings = [];
-
-    public $sizes = [];
+    public $jobSettings = [];
 
     protected function getPackageProviders($app): array
     {
@@ -19,14 +17,16 @@ class MediaConverterTestCase extends TestCase
 
     public function initializeDotEnv()
     {
+        if (! file_exists(__DIR__.'/../.env')) {
+            return;
+        }
+
         $dotenv = \Dotenv\Dotenv::createImmutable(dirname(__DIR__));
         $dotenv->load();
     }
 
     public function initializeSettings()
     {
-        $configFile = file_get_contents(__DIR__.'/config/job.json');
-
         // let's make sure these config values are set
         Config::set('media-converter.credentials.key', env('AWS_ACCESS_KEY_ID'));
         Config::set('media-converter.credentials.secret', env('AWS_SECRET_ACCESS_KEY'));
@@ -34,6 +34,7 @@ class MediaConverterTestCase extends TestCase
         Config::set('media-converter.iam_arn', env('AWS_IAM_ARN'));
         Config::set('media-converter.queue_arn', env('AWS_QUEUE_ARN'));
 
-        $this->settings = json_decode($configFile, true);
+        $configFile = file_get_contents(__DIR__.'/config/job.json');
+        $this->jobSettings = json_decode($configFile, true);
     }
 }

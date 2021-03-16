@@ -18,13 +18,20 @@ This is a wrapper package for AWS MediaConvert. Additional drivers may be added.
 use Meema\MediaConverter\Facades\MediaConvert;
 use Meema\MediaConverter\Jobs\CreateVideoConversion;
 
-// run any of the following MediaConvert methods:
+# simple usage
+MediaConvert::path('video.mkv') // the s3 path to the file inside the bucket defined in your config (filesystems.disks.s3.bucket) 
+    ->optimizeForWeb() // will generate an optmized MP4 for you 
+    ->withThumbnails(int $framerateNumerator, int $framerateDenominator, int $maxCaptures, $width = null, $nameModifier = null, $imageQuality = 80) // will generate thumbnails from the video for you, e.g. poster images
+    ->saveTo('my-optimized-video.mp4'); // output file name
+    ->createJob();
+
+# advanced usage
 $result = MediaConvert::cancelJob(string $id);
 $result = MediaConvert::createJob(array $settings, array $metaData = [], int $priority = 0);
 $result = MediaConvert::getJob(string $id);
 $result = MediaConvert::listJobs(array $options);
 
-// you may also dispatch a job to convert a video
+# you may also dispatch a job to convert a video
 dispatch(new CreateVideoConversion($jobSettings, $mediaId)); // $mediaId is optional & refers to the relating model's id
 ```
 
