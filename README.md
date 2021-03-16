@@ -1,6 +1,7 @@
 # Media Converter Package for Laravel
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/meema/laravel-media-converter.svg?style=flat-square)](https://packagist.org/packages/meema/laravel-media-converter)
+[![GitHub Workflow Status](https://github.com/meemalabs/laravel-media-converter/actions/workflows/run-tests.yml/badge.svg?label=tests)](https://github.com/meemalabs/laravel-media-converter)
 [![StyleCI](https://github.styleci.io/repos/314969855/shield?branch=main)](https://github.styleci.io/repos/314969855)
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/meemalabs/laravel-media-converter/badges/quality-score.png?b=main)](https://scrutinizer-ci.com/g/meemalabs/laravel-media-converter/?branch=main)
 [![Total Downloads](https://img.shields.io/packagist/dt/meema/laravel-media-converter.svg?style=flat-square)](https://packagist.org/packages/meema/laravel-media-converter)
