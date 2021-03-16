@@ -17,6 +17,10 @@ class MediaConverterTestCase extends TestCase
 
     public function initializeDotEnv()
     {
+        if (! file_exists(__DIR__.'/../.env')) {
+            return;
+        }
+
         $dotenv = \Dotenv\Dotenv::createImmutable(dirname(__DIR__));
         $dotenv->load();
     }
