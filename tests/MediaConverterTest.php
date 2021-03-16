@@ -10,11 +10,63 @@ beforeEach(function () {
 });
 
 it('can successfully initialize settings', function () {
-    $this->assertTrue(is_array($this->settings));
+    $converter = MediaConvert::path('my-video.mkv', 'test-bucket');
+    $this->assertTrue(is_array($converter->jobSettings));
+});
+
+it('can successfully set a path', function () {
+    $converter = MediaConvert::path('my-video.mkv', 'test-bucket');
+    $fileInput = 's3://test-bucket/my-video.mkv';
+    $this->assertEquals($converter->jobSettings['Inputs'][0]['FileInput'], $fileInput);
+});
+
+it('can successfully web optimize a video', function () {
+    $converter = MediaConvert::path('my-video.mkv', 'test-bucket')->optimizeForWeb();
+    // todo: we could likely improve this by running an actual test and compare the output file
+    $this->assertEquals($converter->jobSettings['OutputGroups'][1]['CustomName'], 'MP4');
+});
+
+it('can successfully set the settings to generate thumbnails', function () {
+    $framerateNumerator = 1;
+    $framerateDenominator = 2;
+    $maxCaptures = 3;
+    $imageQuality = 75;
+    $width = 100;
+    $nameModifier = '.$w$x$h$';
+
+    $converter = MediaConvert::path('my-video.mkv', 'test-bucket')
+        ->optimizeForWeb()
+        ->withThumbnails($framerateNumerator, $framerateDenominator, $maxCaptures, $width, $nameModifier, $imageQuality);
+
+    $this->assertEquals($converter->jobSettings['OutputGroups'][0]['Outputs'][0]['VideoDescription']['CodecSettings']['FrameCaptureSettings'], [
+        'FramerateNumerator' => $framerateNumerator,
+        'FramerateDenominator' => $framerateDenominator,
+        'MaxCaptures' => $maxCaptures,
+        'Quality' => $imageQuality,
+    ]);
+
+    $this->assertEquals($converter->jobSettings['OutputGroups'][0]['Outputs'][0]['VideoDescription']['Width'], $width);
+    $this->assertEquals($converter->jobSettings['OutputGroups'][0]['Outputs'][0]['NameModifier'], $nameModifier);
+});
+
+it('can successfully update the output path', function () {
+    $inputName = 'my-video.mkv';
+    $outputName = 'my-video.mp4';
+    $bucket = 'test-bucket';
+
+    $converter = MediaConvert::path($inputName, 'test-bucket')
+        ->optimizeForWeb()
+        ->withThumbnails(1, 2, 3, 100)
+        ->saveTo($outputName, $bucket);
+
+    $destination = 's3://test-bucket';
+
+    $this->assertEquals($converter->jobSettings['OutputGroups'][0]['OutputGroupSettings']['FileGroupSettings']['Destination'], $destination.'/thumbnails/');
+    $this->assertEquals($converter->jobSettings['OutputGroups'][1]['OutputGroupSettings']['FileGroupSettings']['Destination'], $destination.'/mp4/');
 });
 
 it('can successfully create a job', function () {
-    $response = MediaConvert::createJob($this->settings);
+    $response = MediaConvert::createJob($this->jobSettings);
 
     $this->assertEquals($response['@metadata']['statusCode'], 201);
 });
@@ -30,7 +82,7 @@ it('can successfully get a job', function () {
 });
 
  it('can successfully cancel a job', function () {
-     $job = MediaConvert::createJob($this->settings, []);
+     $job = MediaConvert::createJob($this->jobSettings, []);
 
      $response = MediaConvert::cancelJob($job['Job']['Id']);
 
