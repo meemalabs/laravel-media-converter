@@ -21,7 +21,7 @@ use Meema\MediaConverter\Jobs\CreateVideoConversion;
 
 # simple usage
 MediaConvert::path('video.mkv') // the s3 path to the file inside the bucket defined in your config (filesystems.disks.s3.bucket) 
-    ->optimizeForWeb() // will generate an optmized MP4 for you 
+    ->optimizeForWeb() // will generate an optimized MP4 for you 
     ->withThumbnails(int $framerateNumerator, int $framerateDenominator, int $maxCaptures, $width = null, $nameModifier = null, $imageQuality = 80) // will generate thumbnails from the video for you, e.g. poster images
     ->saveTo('my-optimized-video.mp4'); // output file name
     ->createJob();
