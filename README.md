@@ -20,8 +20,8 @@ use Meema\MediaConverter\Facades\MediaConvert;
 use Meema\MediaConverter\Jobs\CreateVideoConversion;
 
 # simple usage
-MediaConvert::path('video.mkv') // the s3 path to the file inside the bucket defined in your config (filesystems.disks.s3.bucket) 
-    ->optimizeForWeb() // will generate an optimized MP4 for you 
+MediaConvert::path('video.mkv') // the s3 path to the file inside the bucket defined in your config (filesystems.disks.s3.bucket)
+    ->optimizeForWeb() // will generate an optimized MP4 for you
     ->withThumbnails(int $framerateNumerator, int $framerateDenominator, int $maxCaptures, $width = null, $nameModifier = null, $imageQuality = 80) // will generate thumbnails from the video for you, e.g. poster images
     ->saveTo('my-optimized-video.mp4'); // output file name
     ->createJob();
@@ -211,6 +211,15 @@ As you can see in above screenshot, we needed to select the "Service Name", "Eve
 Lastly, the second & final step of the "Rule creation" prompts you to enter a name and an optional description. You may use any name, e.g. `mediaconvert-job-updates`.
 
 Now, your API will receive webhooks!
+
+## Deploying to Laravel Vapor
+
+Please note, as of right now, you cannot reuse the AWS credentials stored in your "environment file". The "workaround" for this is to adjust the `media-converter.php`-config file by renaming
+
+From: `AWS_ACCESS_KEY_ID` - To: e.g. `VAPOR_ACCESS_KEY_ID`
+From: `AWS_SECRET_ACCESS_KEY` - To: e.g. `VAPOR_SECRET_ACCESS_KEY`
+
+and, lastly, please ensure that your Vapor environment has these values defined.
 
 ### Testing
 

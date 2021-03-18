@@ -8,6 +8,11 @@ return [
 
     /**
      * IAM Credentials from AWS.
+     *
+     * Please note, if you are intending to use Laravel Vapor, rename
+     * From: AWS_ACCESS_KEY_ID - To: e.g. VAPOR_ACCESS_KEY_ID
+     * From: AWS_SECRET_ACCESS_KEY - To: e.g. VAPOR_SECRET_ACCESS_KEY
+     * and ensure that your Vapor environment has these values defined.
      */
     'credentials' => [
         'key' => env('AWS_ACCESS_KEY_ID'),
