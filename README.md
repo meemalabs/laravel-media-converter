@@ -217,6 +217,7 @@ Now, your API will receive webhooks!
 Please note, as of right now, you cannot reuse the AWS credentials stored in your "environment file". The "workaround" for this is to adjust the `media-converter.php`-config file by renaming
 
 From: `AWS_ACCESS_KEY_ID` - To: e.g. `VAPOR_ACCESS_KEY_ID`
+
 From: `AWS_SECRET_ACCESS_KEY` - To: e.g. `VAPOR_SECRET_ACCESS_KEY`
 
 and, lastly, please ensure that your Vapor environment has these values defined.
