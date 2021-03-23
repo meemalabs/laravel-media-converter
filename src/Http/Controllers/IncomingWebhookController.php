@@ -39,7 +39,7 @@ class IncomingWebhookController extends Controller
 
             $detail = $message['detail'];
 
-            if (!array_key_exists('status', $detail)) {
+            if (! array_key_exists('status', $detail)) {
                 Log::alert('incoming MediaConvert webhook: "status"-key does not exist');
 
                 return;
