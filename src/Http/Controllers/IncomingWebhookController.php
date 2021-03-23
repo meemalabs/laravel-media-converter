@@ -82,6 +82,6 @@ class IncomingWebhookController extends Controller
             Http::get($message['SubscribeURL']);
         }
 
-        return $message;
+        return json_decode($message['Message'], true);
     }
 }
