@@ -31,13 +31,20 @@ class IncomingWebhookController extends Controller
 
             Log::info('incoming MediaConvert webhook message', $message);
 
-            if (! array_key_exists('Status', $message)) {
-                Log::alert('incoming MediaConvert webhook: "Status"-key does not exist');
+            if (! array_key_exists('detail', $message)) {
+                Log::alert('incoming MediaConvert webhook: "detail"-key does not exist');
 
                 return;
             }
 
             $detail = $message['detail'];
+
+            if (!array_key_exists('status', $detail)) {
+                Log::alert('incoming MediaConvert webhook: "status"-key does not exist');
+
+                return;
+            }
+
             $status = $detail['status'];
 
             $this->fireEventFor($status, $message);
