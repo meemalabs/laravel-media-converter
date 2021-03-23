@@ -5,6 +5,7 @@ namespace Meema\MediaConverter\Http\Controllers;
 use Aws\Sns\Message;
 use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\Http;
+use Illuminate\Support\Facades\Log;
 use Meema\MediaConverter\Events\ConversionHasCompleted;
 use Meema\MediaConverter\Events\ConversionHasError;
 use Meema\MediaConverter\Events\ConversionHasInputInformation;
@@ -27,6 +28,14 @@ class IncomingWebhookController extends Controller
     {
         try {
             $message = $this->ensureSubscriptionIsConfirmed();
+
+            Log::info('incoming MediaConvert webhook message', $message);
+
+            if (!array_key_exists('Status', $message)) {
+                Log::alert('incoming MediaConvert webhook: "Status"-key does not exist');
+
+                return;
+            }
 
             $detail = $message['detail'];
             $status = $detail['status'];
