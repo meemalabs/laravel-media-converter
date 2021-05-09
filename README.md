@@ -237,7 +237,7 @@ Please see [CONTRIBUTING](CONTRIBUTING.md) for details.
 
 ### Security
 
-If you discover any security related issues, please email chris@cion.agency instead of using the issue tracker.
+If you discover any security related issues, please email [security@meema.io](security@meema.io) instead of using the issue tracker.
 
 ## Credits
 
