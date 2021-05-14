@@ -41,7 +41,7 @@ class CreateVideoConversion implements ShouldQueue
     {
         $metaData = [];
         $tags = [];
-        
+
         if ($this->mediaId) {
             $metaData = ['model_id' => $this->mediaId];
         }
@@ -49,8 +49,6 @@ class CreateVideoConversion implements ShouldQueue
         if ($this->teamId) {
             $tags = ['team_id' => $this->teamId];
         }
-
-
 
         MediaConvert::createJob($this->jobSettings, $metaData, $tags);
     }
