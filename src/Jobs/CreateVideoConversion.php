@@ -40,11 +40,18 @@ class CreateVideoConversion implements ShouldQueue
     public function handle()
     {
         $metaData = [];
-
+        $tags = [];
+        
         if ($this->mediaId) {
             $metaData = ['model_id' => $this->mediaId];
         }
 
-        MediaConvert::createJob($this->jobSettings, $metaData);
+        if ($this->teamId) {
+            $tags = ['team_id' => $this->teamId];
+        }
+
+
+
+        MediaConvert::createJob($this->jobSettings, $metaData, $tags);
     }
 }
