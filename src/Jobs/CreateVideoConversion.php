@@ -23,12 +23,16 @@ class CreateVideoConversion implements ShouldQueue
      * @param $jobSettings
      * @param $mediaId
      */
-    public function __construct($jobSettings, $mediaId = null)
+    public function __construct($jobSettings, $mediaId = null, $teamId = null)
     {
         $this->jobSettings = $jobSettings;
 
         if ($mediaId) {
             $this->mediaId = $mediaId;
+        }
+
+        if ($teamId) {
+            $this->teamId = $teamId;
         }
     }
 
