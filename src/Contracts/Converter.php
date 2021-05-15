@@ -58,7 +58,7 @@ interface Converter
      * @param int $priority
      * @return \Aws\Result
      */
-    public function createJob(array $settings, array $metaData, int $priority);
+    public function createJob(array $settings, array $metaData, array $tags, int $priority);
 
     /**
      * Gets the job.
