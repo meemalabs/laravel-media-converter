@@ -35,7 +35,7 @@ class CreateVideoConversion implements ShouldQueue
      * @param array $tags
      * @param int $mediaId
      */
-    public function __construct($jobSettings, $tags, $mediaId = null)
+    public function __construct($jobSettings, $tags = [], $mediaId = null)
     {
         $this->jobSettings = $jobSettings;
         $this->tags = $tags;
