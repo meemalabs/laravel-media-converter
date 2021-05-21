@@ -19,9 +19,9 @@ class CreateVideoConversion implements ShouldQueue
     private array $jobSettings;
 
     /**
-     * @var array
+     * @var int
      */
-    private int $metaData;
+    private int $mediaId;
 
     /**
      * @var array
@@ -32,14 +32,17 @@ class CreateVideoConversion implements ShouldQueue
      * Create a new job instance.
      *
      * @param array $jobSettings
-     * @param array $metadata
      * @param array $tags
+     * @param int $mediaId
      */
-    public function __construct($jobSettings, $metaData = [], $tags = [])
+    public function __construct($jobSettings, $tags = [], $mediaId = null)
     {
         $this->jobSettings = $jobSettings;
-        $this->metaData = $metaData;
         $this->tags = $tags;
+
+        if ($mediaId) {
+            $this->mediaId = $mediaId;
+        }
     }
 
     /**
@@ -49,6 +52,13 @@ class CreateVideoConversion implements ShouldQueue
      */
     public function handle()
     {
-        MediaConvert::createJob($this->jobSettings, $this->metaData, $this->tags);
+        $metaData = [];
+        $tags = $this->tags;
+
+        if ($this->mediaId) {
+            $metaData = ['model_id' => $this->mediaId];
+        }
+
+        MediaConvert::createJob($this->jobSettings, $metaData, $tags);
     }
 }
