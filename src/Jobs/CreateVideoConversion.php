@@ -31,9 +31,9 @@ class CreateVideoConversion implements ShouldQueue
     /**
      * Create a new job instance.
      *
-     * @param $jobSettings
-     * @param $tags
-     * @param $mediaId
+     * @param array $jobSettings
+     * @param array $tags
+     * @param int $mediaId
      */
     public function __construct($jobSettings, $tags, $mediaId = null)
     {
