@@ -146,8 +146,12 @@ class MediaConvert implements Converter
      * @param int $priority
      * @return \Aws\Result
      */
-    public function createJob(array $settings, array $metaData = [], array $tags = [], int $priority = 0)
+    public function createJob(array $settings = [], array $metaData = [], array $tags = [], int $priority = 0)
     {
+        if (empty($settings)) {
+            $settings = $this->jobSettings;
+        }
+
         return $this->client->createJob([
             'Role' => config('media-converter.iam_arn'),
             'Settings' => $settings,
