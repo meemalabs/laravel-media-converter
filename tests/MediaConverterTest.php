@@ -71,9 +71,23 @@ it('can successfully create a job', function () {
     $this->assertEquals($response['@metadata']['statusCode'], 201);
 });
 
-it('can successfully get a job', function () {
+it('can successfully create a job chained', function () {
+    $inputName = 'my-video.mkv';
+    $outputName = 'my-video.mp4';
+    $bucket = 'test-bucket';
+
+    $response = MediaConvert::path($inputName, 'test-bucket')
+        ->optimizeForWeb()
+        ->withThumbnails(1, 2, 3, 100)
+        ->saveTo($outputName, $bucket)
+        ->createJob();
+
+    $this->assertEquals($response['@metadata']['statusCode'], 201);
+});
+
+it('can successfully get a jobs', function () {
     // just a hardcoded job ID retrieved from one of the AWS MediaConvert jobs
-    $jobId = '1615614565083-g1cgjm';
+    $jobId = '1627096589458-nqj4pr';
 
     $response = MediaConvert::getJob($jobId);
 

@@ -36,7 +36,6 @@ class DefaultMediaConvertJobSettings
                                 'ColorMetadata' => 'INSERT',
                                 'Width' => null, // to be set dynamically
                             ],
-                            'NameModifier' => null, // to be set dynamically
                         ],
                     ],
                     'OutputGroupSettings' => [
