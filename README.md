@@ -48,7 +48,7 @@ The package will automatically register itself.
 Next, publish the config file with:
 
 ```bash
-php artisan vendor:publish --provider="Meema\MediaConverter\Providers\MediaConvertServiceProvider" --tag="config"
+php artisan vendor:publish --provider="Meema\MediaConverter\Providers\MediaConverterServiceProvider" --tag="config"
 ```
 
 Next, please add the following keys their values to your `.env` file.
