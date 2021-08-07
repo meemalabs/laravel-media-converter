@@ -12,7 +12,7 @@ This is a wrapper package for AWS MediaConvert. Additional drivers may be added.
 
 ![laravel-media-converter package image](https://banners.beyondco.de/Media%20Converter.png?theme=light&packageManager=composer+require&packageName=meema%2Flaravel-media-converter&pattern=floatingCogs&style=style_1&description=Easily+%26+quickly+integrate+your+application+with+AWS+MediaConvert.&md=1&showWatermark=1&fontSize=125px&images=video-camera&widths=350)
 
-## Usage
+## 💡 Usage
 
 ``` php
 use Meema\MediaConverter\Facades\MediaConvert;
@@ -35,7 +35,7 @@ $result = MediaConvert::listJobs(array $options);
 dispatch(new CreateVideoConversion($jobSettings, $mediaId)); // $mediaId is optional & refers to the relating model's id
 ```
 
-## Installation
+## 🐙 Installation
 
 You can install the package via composer:
 
@@ -132,7 +132,7 @@ return [
 ];
 ```
 
-## Preparing Your Media Model (optional)
+### Preparing Your Media Model (optional)
 
 This package includes a trait for your "Media model" that you may use to define the relationship of your media model with the tracked conversions.
 
@@ -158,13 +158,13 @@ This package makes use of webhooks in order to communicate the status/progress o
 
 Please note, this is only optional, and you should only enable this if you want to track the MediaConvert job's progressions.
 
-#### Setup Expose
+### Setup Expose
 
 First, let's use [Expose](https://beyondco.de/docs/expose/getting-started/installation) to "expose" / generate a URL for our local API. Follow the Expose documentation on how you can get started and generate a "live" & sharable URL for within your development environment.
 
 It should be as simple as `cd my-laravel-api && expose`.
 
-#### Setup AWS SNS Topic & Subscription
+### Setup AWS SNS Topic & Subscription
 
 Second, let's create an AWS SNS Topic which will notify our "exposed" API endpoint:
 
@@ -197,7 +197,7 @@ You can also view the request in the Expose interface, by visiting the "Dashboar
 
 Once the status reflects "Confirmed", your API will receive webhooks as AWS provides updates.
 
-#### Create CloudWatch Event
+### Create CloudWatch Event
 
 1. Open the CloudWatch console at https://console.aws.amazon.com/cloudwatch/.
 2. In the navigation pane, choose Events, and then choose "Create rule".
@@ -211,7 +211,7 @@ Lastly, the second & final step of the "Rule creation" prompts you to enter a na
 
 Now, your API will receive webhooks!
 
-## Deploying to Laravel Vapor
+### Deploying to Laravel Vapor
 
 Please note, as of right now, you cannot reuse the AWS credentials stored in your "environment file". The "workaround" for this is to adjust the `media-converter.php`-config file by renaming
 
@@ -221,32 +221,42 @@ From: `AWS_SECRET_ACCESS_KEY` - To: e.g. `VAPOR_SECRET_ACCESS_KEY`
 
 and, lastly, please ensure that your Vapor environment has these values defined.
 
-### Testing
+## 🧪 Testing
 
 ``` bash
 composer test
 ```
 
-### Changelog
+## 📈 Changelog
 
-Please see [CHANGELOG](CHANGELOG.md) for more information what has changed recently.
+Please see our [releases](https://github.com/meemalabs/laravel-media-converter/releases) page for more information on what has changed recently.
 
-## Contributing
+## 💪🏼 Contributing
 
 Please see [CONTRIBUTING](CONTRIBUTING.md) for details.
 
-### Security
+## 🏝 Community
 
-If you discover any security related issues, please email [security@meema.io](security@meema.io) instead of using the issue tracker.
+For help, discussion about best practices, or any other conversation that would benefit from being searchable:
 
-## Credits
+[Media Converter on GitHub](https://github.com/meemalabs/laravel-media-converter/discussions)
+
+For casual chit-chat with others using this package:
+
+[Join the Meema Discord Server](https://discord.meema.io)
+
+## 🚨 Security
+
+Please review [our security policy](https://github.com/meemalabs/laravel-media-converter/security/policy) on how to report security vulnerabilities.
+
+## 🙏🏼 Credits
 
 - [Chris Breuer](https://github.com/Chris1904)
 - [Folks at Meema](https://github.com/meemalabs)
 - [All Contributors](../../contributors)
 
-## License
+## 📄 License
 
-The MIT License (MIT). Please see [License File](LICENSE.md) for more information.
+The MIT License (MIT). Please see [LICENSE](LICENSE.md) for more information.
 
 Made with ❤️ by Meema, Inc.
