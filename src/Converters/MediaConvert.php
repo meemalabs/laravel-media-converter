@@ -117,7 +117,7 @@ class MediaConvert implements Converter
      */
     public function saveTo(string $s3Path, $s3bucket = null): MediaConvert
     {
-        $destination = 's3://'.($s3bucket ?? config('filesystems.disks.s3.bucket'));
+        $destination = 's3://'.($s3bucket ?? config('filesystems.disks.s3.bucket')).$s3Path;
 
         $this->jobSettings['OutputGroups'][0]['OutputGroupSettings']['FileGroupSettings']['Destination'] = $destination.'/thumbnails/';
         $this->jobSettings['OutputGroups'][1]['OutputGroupSettings']['FileGroupSettings']['Destination'] = $destination.'/mp4/';
