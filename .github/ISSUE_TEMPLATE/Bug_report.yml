@@ -13,14 +13,14 @@ body:
   attributes:
     label: Laravel version
     description: "Please provide the full version of Laravel that you're experiencing the bug with."
-    placeholder: "v1.2.3"
+    placeholder: "v8.20"
   validations:
     required: true
 - type: input
   attributes:
     label: PHP version
     description: "Please provide the full version of PHP that you're experiencing the bug with."
-    placeholder: "v1.2.3"
+    placeholder: "v8.0.0"
   validations:
     required: true
 - type: textarea

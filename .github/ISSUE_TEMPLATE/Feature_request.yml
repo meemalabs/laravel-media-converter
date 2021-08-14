@@ -1,4 +1,4 @@
-name: Feature request
+name: "\U0001F4A1 Feature request"
 description: "For ideas or feature requests: please make a pull request or open an issue."
 labels: [enhancement]
 body:
@@ -7,4 +7,4 @@ body:
       label: Please describe the feature
       description: A concise description of what you would like to experience.
     validations:
-      required: false
+      required: true
