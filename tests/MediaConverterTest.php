@@ -59,7 +59,7 @@ it('can successfully update the output path', function () {
         ->withThumbnails(1, 2, 3, 100)
         ->saveTo($outputName, $bucket);
 
-    $destination = 's3://test-bucket';
+    $destination = 's3://test-bucket'.'/'.$outputName;
 
     $this->assertEquals($converter->jobSettings['OutputGroups'][0]['OutputGroupSettings']['FileGroupSettings']['Destination'], $destination.'/thumbnails/');
     $this->assertEquals($converter->jobSettings['OutputGroups'][1]['OutputGroupSettings']['FileGroupSettings']['Destination'], $destination.'/mp4/');
