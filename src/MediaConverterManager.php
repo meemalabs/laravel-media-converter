@@ -13,7 +13,7 @@ class MediaConverterManager extends Manager
     /**
      * Get a driver instance.
      *
-     * @param string|null $name
+     * @param  string|null  $name
      * @return mixed
      */
     public function engine($name = null)
@@ -25,6 +25,7 @@ class MediaConverterManager extends Manager
      * Create an Amazon MediaConvert Converter instance.
      *
      * @return \Meema\MediaConverter\Converters\MediaConvert
+     *
      * @throws \Exception
      */
     public function createMediaConvertDriver(): MediaConvert
@@ -43,8 +44,8 @@ class MediaConverterManager extends Manager
     /**
      * Sets the MediaConvert client.
      *
-     * @param array $config
-     * @param Credentials $credentials
+     * @param  array  $config
+     * @param  Credentials  $credentials
      * @return \Aws\MediaConvert\MediaConvertClient
      */
     protected function setMediaConvertClient(array $config, Credentials $credentials): MediaConvertClient
@@ -59,7 +60,7 @@ class MediaConverterManager extends Manager
     /**
      * Get credentials of AWS.
      *
-     * @param array $credentials
+     * @param  array  $credentials
      * @return \Aws\Credentials\Credentials
      */
     protected function getCredentials(array $credentials): Credentials
