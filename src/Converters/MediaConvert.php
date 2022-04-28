@@ -25,7 +25,7 @@ class MediaConvert implements Converter
     /**
      * Construct converter.
      *
-     * @param \Aws\MediaConvert\MediaConvertClient $client
+     * @param  \Aws\MediaConvert\MediaConvertClient  $client
      */
     public function __construct(MediaConvertClient $client)
     {
@@ -54,8 +54,8 @@ class MediaConvert implements Converter
     /**
      * Sets the path of the file input.
      *
-     * @param string $path - represents the S3 path, e.g path/to/file.mp4
-     * @param string|null $bucket - reference to the S3 Bucket name. Defaults to config value.
+     * @param  string  $path  - represents the S3 path, e.g path/to/file.mp4
+     * @param  string|null  $bucket  - reference to the S3 Bucket name. Defaults to config value.
      * @return \Meema\MediaConverter\Converters\MediaConvert
      */
     public function path(string $path, $bucket = null): MediaConvert
@@ -80,12 +80,12 @@ class MediaConvert implements Converter
     /**
      * Sets the settings required to generate the proper amount of thumbnails.
      *
-     * @param int $framerateNumerator
-     * @param int $framerateDenominator
-     * @param int $maxCaptures
-     * @param int|null $width
-     * @param string|null $nameModifier
-     * @param int $imageQuality
+     * @param  int  $framerateNumerator
+     * @param  int  $framerateDenominator
+     * @param  int  $maxCaptures
+     * @param  int|null  $width
+     * @param  string|null  $nameModifier
+     * @param  int  $imageQuality
      * @return \Meema\MediaConverter\Converters\MediaConvert
      */
     public function withThumbnails(int $framerateNumerator, int $framerateDenominator, int $maxCaptures, $width = null, $nameModifier = null, $imageQuality = 80): MediaConvert
@@ -111,8 +111,8 @@ class MediaConvert implements Converter
     /**
      * Sets the S3 path & executes the job.
      *
-     * @param string $s3Path
-     * @param string|null $s3bucket
+     * @param  string  $s3Path
+     * @param  string|null  $s3bucket
      * @return \Meema\MediaConverter\Converters\MediaConvert
      */
     public function saveTo(string $s3Path, $s3bucket = null): MediaConvert
@@ -128,7 +128,7 @@ class MediaConvert implements Converter
     /**
      * Cancels an active job.
      *
-     * @param string $id
+     * @param  string  $id
      * @return \Aws\Result
      */
     public function cancelJob(string $id)
@@ -141,9 +141,9 @@ class MediaConvert implements Converter
     /**
      * Creates a new job based on the settings passed.
      *
-     * @param array $settings
-     * @param array $metaData
-     * @param int $priority
+     * @param  array  $settings
+     * @param  array  $metaData
+     * @param  int  $priority
      * @return \Aws\Result
      */
     public function createJob(array $settings = [], array $metaData = [], array $tags = [], int $priority = 0)
@@ -166,7 +166,7 @@ class MediaConvert implements Converter
     /**
      * Gets the job.
      *
-     * @param string $id
+     * @param  string  $id
      * @return \Aws\Result
      */
     public function getJob(string $id)
@@ -179,7 +179,7 @@ class MediaConvert implements Converter
     /**
      * Lists all of the jobs based on your options provided.
      *
-     * @param array $options
+     * @param  array  $options
      * @return \Aws\Result
      */
     public function listJobs(array $options)
@@ -202,8 +202,8 @@ class MediaConvert implements Converter
     /**
      * Sets the S3 input file path.
      *
-     * @param string $path
-     * @param string|null $bucket
+     * @param  string  $path
+     * @param  string|null  $bucket
      */
     protected function setFileInput(string $path, $bucket = null)
     {

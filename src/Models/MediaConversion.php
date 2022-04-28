@@ -18,6 +18,7 @@ use Illuminate\Support\Str;
  * @property int|null $percentage_completed
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
+ *
  * @method static \Illuminate\Database\Eloquent\Builder|MediaConversion newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|MediaConversion newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|MediaConversion query()

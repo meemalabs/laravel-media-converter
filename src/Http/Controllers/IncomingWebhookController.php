@@ -56,6 +56,7 @@ class IncomingWebhookController extends Controller
     /**
      * @param $status
      * @param $message
+     *
      * @throws \Exception
      */
     public function fireEventFor($status, $message)
