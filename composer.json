@@ -31,7 +31,7 @@
         "orchestra/testbench": "^5.0|^6.0",
         "pestphp/pest": "^1.0",
         "pestphp/pest-plugin-laravel": "^1.0",
-        "phpunit/phpunit": "^8.0|^9.3",
+        "phpunit/phpunit": "10.0.16",
         "vlucas/phpdotenv": "^4.2|^5.3"
     },
     "autoload": {
