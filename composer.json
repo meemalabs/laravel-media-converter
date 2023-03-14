@@ -22,7 +22,7 @@
         }
     ],
     "require": {
-        "php": "^7.3|^8.0",
+        "php": "8.2.4",
         "ext-json": "*",
         "aws/aws-php-sns-message-validator": "^1.6",
         "aws/aws-sdk-php": "^3.173"
