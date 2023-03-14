@@ -22,17 +22,17 @@
         }
     ],
     "require": {
-        "php": "^7.3|^8.0",
+        "php": "7.4.33",
         "ext-json": "*",
-        "aws/aws-php-sns-message-validator": "^1.6",
-        "aws/aws-sdk-php": "^3.173"
+        "aws/aws-php-sns-message-validator": "^1.8.0",
+        "aws/aws-sdk-php": "^3.261.10"
     },
     "require-dev": {
-        "orchestra/testbench": "^5.0|^6.0",
-        "pestphp/pest": "^1.0",
-        "pestphp/pest-plugin-laravel": "^1.0",
-        "phpunit/phpunit": "^8.0|^9.3",
-        "vlucas/phpdotenv": "^4.2|^5.3"
+        "orchestra/testbench": "5.20.0",
+        "pestphp/pest": "^1.22.5",
+        "pestphp/pest-plugin-laravel": "^1.4.0",
+        "phpunit/phpunit": "8.5.33",
+        "vlucas/phpdotenv": "4.3.0"
     },
     "autoload": {
         "psr-4": {
