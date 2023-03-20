@@ -30,7 +30,7 @@
     "require-dev": {
         "orchestra/testbench": "^5.0|^6.0",
         "pestphp/pest": "^1.0",
-        "pestphp/pest-plugin-laravel": "^1.0",
+        "pestphp/pest-plugin-laravel": "^2.0.0",
         "phpunit/phpunit": "^8.0|^9.3",
         "vlucas/phpdotenv": "^4.2|^5.3"
     },
