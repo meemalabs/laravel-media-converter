@@ -54,8 +54,8 @@ class IncomingWebhookController extends Controller
     }
 
     /**
-     * @param $status
-     * @param $message
+     * @param  $status
+     * @param  $message
      *
      * @throws \Exception
      */
