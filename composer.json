@@ -28,7 +28,7 @@
         "aws/aws-sdk-php": "^3.173"
     },
     "require-dev": {
-        "orchestra/testbench": "^5.0|^6.0",
+        "orchestra/testbench": "9.0.0",
         "pestphp/pest": "^1.0",
         "pestphp/pest-plugin-laravel": "^1.0",
         "phpunit/phpunit": "^8.0|^9.3",
