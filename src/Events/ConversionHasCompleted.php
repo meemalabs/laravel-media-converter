@@ -16,7 +16,7 @@ class ConversionHasCompleted
     /**
      * Create a new event instance.
      *
-     * @param $message
+     * @param  $message
      */
     public function __construct($message)
     {
