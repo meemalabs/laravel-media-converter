@@ -31,6 +31,7 @@ use Illuminate\Support\Str;
  * @method static \Illuminate\Database\Eloquent\Builder|MediaConversion wherePercentageCompleted($value)
  * @method static \Illuminate\Database\Eloquent\Builder|MediaConversion whereStatus($value)
  * @method static \Illuminate\Database\Eloquent\Builder|MediaConversion whereUpdatedAt($value)
+ *
  * @mixin \Eloquent
  */
 class MediaConversion extends Model
