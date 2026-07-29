@@ -95,17 +95,17 @@ it('can successfully get a jobs', function () {
     $this->assertEquals($response['Job']['Id'], $jobId);
 });
 
- it('can successfully cancel a job', function () {
-     $job = MediaConvert::createJob($this->jobSettings, []);
+it('can successfully cancel a job', function () {
+    $job = MediaConvert::createJob($this->jobSettings, []);
 
-     $response = MediaConvert::cancelJob($job['Job']['Id']);
+    $response = MediaConvert::cancelJob($job['Job']['Id']);
 
-     $this->assertEquals($response['@metadata']['statusCode'], 202);
- });
+    $this->assertEquals($response['@metadata']['statusCode'], 202);
+});
 
- it('can successfully list jobs', function () {
-     $response = MediaConvert::listJobs([]);
+it('can successfully list jobs', function () {
+    $response = MediaConvert::listJobs([]);
 
-     $this->assertEquals($response['@metadata']['statusCode'], 200);
-     $this->assertTrue(count($response) > 0);
- });
+    $this->assertEquals($response['@metadata']['statusCode'], 200);
+    $this->assertTrue(count($response) > 0);
+});
